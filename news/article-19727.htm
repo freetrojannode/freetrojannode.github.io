@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-19727.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>解决go-micro与其它gRPC框架之间的通信问题</title>
+        <meta name="description" content="在之前的文章中分别介绍了使用gRPC官方插件和go-micro插件开发gRPC应用程序的方式，都能正常走通。不过当两者混合使用的时候，互相访问就成了问题。比如使用go-micro插件生成的gRPC客户" />
+        <link rel="icon" href="__ADDON__/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>解决go-micro与其它gRPC框架之间的通信问题</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f345f0d9ff66a91ef21802d274cc9303.jpg" alt="解决go-micro与其它gRPC框架之间的通信问题"></p> <p>在之前的文章中分别介绍了使用gRPC官方插件和go-micro插件开发gRPC应用程序的方式，都能正常走通。不过当两者混合使用的时候，互相访问就成了问题。比如使用go-micro插件生成的gRPC客户端访问基于gRPC官方插件创建的服务端时就会出现如下错误：</p> <pre><code>{"id":"go.micro.client","code":501,"status":"Not Implemented"}</code></pre> <p>经过一番探索，发现是因为go-micro的插件生成代码时丢弃了proto定义中的package，客户端API和服务端API都没有使用这个package，所以它自己也能逻辑自洽，但是和其它框架或者语言的gRPC服务通信时就出现问题了。</p> <p>这里以 hello.proto 为例：</p> <pre><code>syntax = "proto3";  option go_package="/proto";  package Business;  service Hello {   rpc Say (SayRequest) returns (SayResponse); }  message SayResponse {   string Message = 1; }  message SayRequest {   string Name = 1; }</code></pre> <p>对于客户端代理，protoc-gen-go-grpc生成的是：</p> <pre><code>err := c.cc.Invoke(ctx, "/Business.Hello/Say", in, out, opts...)</code></pre> <p>protoc-gen-micro生成的是：</p> <pre><code>req := c.c.NewRequest(c.name, "Hello.Say", in)</code></pre> <p>可以明显看到，go-micro生成的gRPC method中缺少package。当然这个method的风格也有些差异，不过这个不是问题，因为go-micro还会它进行一些格式化处理，格式化代码在grpc插件中。</p> <p>plugins/client/grpc/request.go :</p> <pre><code>func methodToGRPC(service, method string) string { 	// no method or already grpc method 	if len(method) == 0 || method[0] == '/' { 		return method 	}  	// assume method is Foo.Bar 	mParts := strings.Split(method, ".") 	if len(mParts) != 2 { 		return method 	}  	if len(service) == 0 { 		return fmt.Sprintf("/%s/%s", mParts[0], mParts[1]) 	}  	// return /pkg.Foo/Bar 	return fmt.Sprintf("/%s.%s/%s", service, mParts[0], mParts[1]) }</code></pre> <p>可以看到go-micro直接把服务名称作为了package名称，这两者不能等同，不相同时就会出现问题。</p> <p>网上也没有人提过这个问题，可能混合使用的人不多吧。于是我研究了一下 go-micro 的源码，因为是生成的代码中缺少信息，所以要解决这个问题还是得从protoc-gen-micro入手。</p> <p>注意这里使用的是<strong>go-micro v4</strong>版本，其它版本未跟进。</p> <h2 id="客户端改造">客户端改造</h2> <p>针对客户端问题，我做了如下一些修改：</p> <p>在生成客户端method时加上package，并直接生成gRPC风格method（go-micro内部其实支持这种风格），修改文件：cmd/protoc-gen-micro/plugin/micro/micro.go</p> <pre><code class="language-go">func (g *micro) generateClientMethod(pkg, reqServ, servName, serviceDescVar string, method *pb.MethodDescriptorProto, descExpr string) { 	reqMethod := fmt.Sprintf("%s.%s", servName, method.GetName()) 	useGrpc := g.gen.Param["use_grpc"] 	if useGrpc != "" { 		reqMethod = fmt.Sprintf("/%s.%s/%s", pkg, servName, method.GetName()) 	} ...</code></pre> <p>因为还要向前兼容，不能影响现有用户，所以给这个逻辑加了一个开关，使用参数 use_grpc 才会应用新的生成方式。generateClientMethod 方法的 pkg 参数原来并没有，是新加的，从上下文中也比较容易获取到。具体改动可以看这里：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/asim/go-micro/pull/2474/commits/0d435a690ea21a3f64b0534d1fa244f512601493"  target="_blank" rel="nofollow">https://github.com/asim/go-micro/pull/2474/commits/0d435a690ea21a3f64b0534d1fa244f512601493</a></p> <p>现在如果明确只使用gRPC进行通信，或者需要和其它框架或者语言的gRPC应用程序通信，生成代码时可以这样做：</p> <pre><code>protoc --go_out=. --micro_out=. --micro_opt=use_grpc=1 xxx.proto</code></pre> <p>关键就是<em>--micro_opt=use_grpc=1</em>，<em>use_grpc</em>这个参数会传递给 protoc-gen-micro，然后就可以在上边修改过的代码中获取到，不管这个参数的值是什么，只要使用了它，就会生成gRPC风格的带package的method。现在生成的代码是这样的：</p> <pre><code>req := c.c.NewRequest(c.name, "/Business.Hello/Say", in)</code></pre> <p>用这个客户端代理访问其它框架或者语言开发的gRPC服务就没有问题了，当然访问go-micro的gRPC服务也没有问题。</p> <p>怎么获取到这个最新版的 protoc-gen-micro 呢？这个修改提了PR之后，目前已经合并到官方的Github仓库中，但是还没有打tag，可以这样安装：</p> <pre><code>go install go-micro.dev/v4/cmd/protoc-gen-micro@1919048c8f20</code></pre> <p>这可能不是一个好的修改，因为还需要知道有 use_grpc 这么个参数。肯定还有别的修改方案，但是因为对go-micro了解的不多，所有只选择了这个不会影响现有通信方式的方案。</p> <h2 id="服务端改造">服务端改造</h2> <p>服务端没有问题，别的框架或者开发语言的gRPC客户端可以调用基于go-micro的gRPC服务。</p> <p>一开始我测试的时候也遇到了问题，先入为主的以为protoc-gen-micro生成的服务端也有package的问题，因此还提交了个PR，然后被啪啪打脸。然后我又读了读源码，发现go-micro服务端特别巧妙的把客户端请求中的package信息擦除了，所以客户端是否传递package都没有影响，反正服务端不需要。</p> <p>服务端的注册逻辑在 plugins/server/grpc/server.go 中的 register 方法：</p> <pre><code>s := new(service) s.typ = reflect.TypeOf(rcvr) s.rcvr = reflect.ValueOf(rcvr) sname := reflect.Indirect(s.rcvr).Type().Name() ... server.serviceMap[s.name] = s</code></pre> <p>可以看到这里直接用反射获取的类型名称作为服务名称，没有package什么事。</p> <p>然后接收到客户端的gRPC请求时，go-micro又把请求中的package擦除了。这段逻辑在 plugins/server/grpc/grpc.go 中的 handler 方法中：</p> <pre><code>serviceName, methodName, err := mgrpc.ServiceMethod(fullMethod) service := g.rpc.serviceMap[serviceName]</code></pre> <p>通过 mgrpc.ServiceMethod 获取服务名称时去掉了package名称，所以客户端带不带package都没有问题。</p> <h2 id="运行效果">运行效果</h2> <p>现在把程序跑起来，试试用  protoc-gen-micro 生成的客户端访问 基于 protoc-gen-go-grpc 的服务端。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9b4105688f967028eb98a172e58da098.jpg" alt="解决go-micro与其它gRPC框架之间的通信问题"></p> <p>以上就是本文的主要内容，示例代码已经上传到Github，欢迎访问：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/bosima/go-demo/tree/main/go-micro-grpc-hello-compatible"  target="_blank" rel="nofollow">https://github.com/bosima/go-demo/tree/main/go-micro-grpc-hello-compatible</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19726.htm">Spring boot+LogBack+MDC实现链路追踪</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-node-share-links.htm" title="9月28日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接">9月28日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-trojan-node-github.htm" title="11月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">11月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-trojan-node-github.htm" title="8月28日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接">8月28日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-today-trojan-node.htm" title="9月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">9月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-node-subscribe.htm" title="10月18日 | Free Trojan Node节点订阅每天更新21.4M/S免费节点订阅链接">10月18日 | Free Trojan Node节点订阅每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-free-node-subscribe.htm" title="8月22日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">8月22日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-trojan-node-share.htm" title="8月26日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">8月26日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-today-trojan-node.htm" title="10月24日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接">10月24日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-trojan-node-share.htm" title="8月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">8月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-24-free-trojan-node.htm" title="9月24日 | Free Trojan Node节点订阅每天更新19M/S免费节点订阅链接">9月24日 | Free Trojan Node节点订阅每天更新19M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
