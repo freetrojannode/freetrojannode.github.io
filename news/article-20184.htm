@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-20184.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Java 线程池四种拒绝策略</title>
+        <meta name="description" content="jdk1.5版本新增了JUC 并发包，其中一个包含线程池。  四种拒绝策略：     拒绝策略类型 说明     1 ThreadPoolExecutor.AbortPolicy 默认拒绝策略，拒绝任" />
+        <link rel="icon" href="__ADDON__/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Java 线程池四种拒绝策略</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<blockquote> <p>jdk1.5版本新增了<code>JUC</code> 并发包，其中一个包含线程池。</p> </blockquote> <p>四种拒绝策略：</p> <table> <thead> <tr> <th style="text-align: center"></th> <th style="text-align: center">拒绝策略类型</th> <th style="text-align: center">说明</th> </tr> </thead> <tbody> <tr> <td style="text-align: center">1</td> <td style="text-align: center">ThreadPoolExecutor.AbortPolicy</td> <td style="text-align: center">默认拒绝策略，拒绝任务并抛出任务</td> </tr> <tr> <td style="text-align: center">2</td> <td style="text-align: center">ThreadPoolExecutor.CallerRunsPolicy</td> <td style="text-align: center">使用调用线程直接运行任务</td> </tr> <tr> <td style="text-align: center">3</td> <td style="text-align: center">ThreadPoolExecutor.DiscardPolicy</td> <td style="text-align: center">直接拒绝任务，不抛出错误</td> </tr> <tr> <td style="text-align: center">4</td> <td style="text-align: center">ThreadPoolExecutor.DiscardOldestPolicy</td> <td style="text-align: center">触发拒绝策略，只要还有任务新增，一直会丢弃阻塞队列的最老的任务，并将新的任务加入</td> </tr> </tbody> </table> <h2 id="预先配置">预先配置</h2> <h3 id="配置线程池">配置线程池。</h3> <ul> <li>核心线程和最大线程都尽量设置的小一点，分别设置成 1 和 2</li> <li>阻塞队列设置<strong>固定长度</strong>的有界队列，长度为 1</li> <li>线程工厂设置<strong>默认线程工厂</strong></li> </ul> <pre><code>// 核心线程数 int corePoolSize = 1; // 最大线程数 int maximumPoolSize = 2; // 线程存活时间 long keepAliveTime = 10; // 线程存活时间单位 TimeUnit unit = TimeUnit.SECONDS; // 有界队列 遵循 FIFO 原则 BlockingQueue&lt;Runnable&gt; workQueue = new ArrayBlockingQueue&lt;&gt;(1); // 线程工厂 ThreadFactory threadFactory = Executors.defaultThreadFactory();</code></pre> <h3 id="创建线程任务">创建线程任务</h3> <p>创建线程任务，一个线程任务执行一秒：</p> <pre><code>class TaskThread implements Runnable{                  		private int i;  		public TaskThread(int i) { 			this.i = i; 		}  		@Override 		public void run() { 			try { 				TimeUnit.SECONDS.sleep(2); 				System.out.println("执行任务:" + i); 			} catch (InterruptedException e) { 				e.printStackTrace(); 			} 		} 	}</code></pre> <h2 id="拒绝策略一abortpolicy">拒绝策略一:AbortPolicy</h2> <p>默认拒绝策略，拒绝任务并抛出任务</p> <pre><code>// 拒绝策略 默认拒绝策略，拒绝任务并抛出异常： RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy(); ThreadPoolExecutor threadPool = new ThreadPoolExecutor(corePoolSize, 				maximumPoolSize, 				keepAliveTime, 				unit, 				workQueue, 				threadFactory, 				handler); 		for (int i = 1; i &lt;= 5; i++) { 			try { 				threadPool.execute(new TaskThread(i)); 			} catch (Exception e) { 				System.out.println("【任务" + i + "】报错:" + e.getMessage()); 			}  		}</code></pre> <p>输出</p> <pre><code>【任务】4报错:Task com.test.controller.ThreadPoolController$TaskThread@5c0369c4 rejected from java.util.concurrent.ThreadPoolExecutor@50675690[Running, pool size = 2, active threads = 2, queued tasks = 1, completed tasks = 0] 【任务】5报错:Task com.test.controller.ThreadPoolController$TaskThread@31b7dea0 rejected from java.util.concurrent.ThreadPoolExecutor@50675690[Running, pool size = 2, active threads = 2, queued tasks = 1, completed tasks = 0] 执行任务:1 执行任务:3 执行任务:2</code></pre> <p>最大线程数 + 阻塞队列 = 3，执行到4，5的时候就抛出错误。这里需要用<code>try catch</code> 捕获异常。任务1、2、3正常执行。</p> <blockquote> <p>如果提交的任务都要执行，可以将抛出的错误任务存入在redis中，然后定时从<code>redis</code>中获取任务，再提交执行。</p> </blockquote> <h2 id="拒绝策略二callerrunspolicy">拒绝策略二：CallerRunsPolicy</h2> <p>调用线程运行多余的任务。</p> <p>更换拒绝策略，将上面的<code>AbortPolicy</code> 换成<code>CallerRunsPolicy</code>。</p> <pre><code>RejectedExecutionHandler handler = new ThreadPoolExecutor.CallerRunsPolicy();</code></pre> <p>执行任务，输出：</p> <pre><code>执行任务:1 执行任务:4 执行任务:3 执行任务:2 执行任务:5</code></pre> <p>最大线程数 + 阻塞队列 = 3，多余的任务还是继续被执行。</p> <h2 id="拒绝策略三discardpolicy">拒绝策略三：DiscardPolicy</h2> <p>拒绝任务，不会抛出错误。<br /> 更换策略，将<code>CallerRunsPolicy</code> 换成<code>DiscardPolicy</code>:</p> <pre><code>RejectedExecutionHandler handler = new ThreadPoolExecutor.DiscardPolicy();</code></pre> <p>执行任务，输出：</p> <pre><code>执行任务:1 执行任务:3 执行任务:2</code></pre> <p>多余的线程任务提交被拒绝，而只执行<strong>最大线程数 + 阻塞队列</strong> 数量的任务，并且不会抛出错误。</p> <h2 id="拒绝策略四discardoldestpolicy">拒绝策略四：DiscardOldestPolicy</h2> <p>只要还有任务新增，一直会丢弃<strong>阻塞队列</strong>的最老的任务，并将新的任务加入到<strong>阻塞队列中</strong>。<br /> 更换策略，将<code>DiscardPolicy</code> 换成<code>DiscardOldestPolicy</code>:</p> <pre><code>RejectedExecutionHandler handler3 = new ThreadPoolExecutor.DiscardOldestPolicy();</code></pre> <p>执行任务，输出：</p> <pre><code>执行任务:3 执行任务:1 执行任务:5</code></pre> <p>任务的执行顺序是 核心线程数 —&gt; 阻塞队列 —&gt; 最大线程数，其中任务1，任务3提交成功。</p> <ul> <li>任务2因为在阻塞队列中，</li> <li>后面的任务4把任务2挤掉，</li> <li>任务5又把任务4挤掉，所以最后执行的是任务5。</li> </ul> <h2 id="总结">总结</h2> <p>本文介绍了线程四种拒绝策略，当工作任务大于<strong>最大线程 + 阻塞队列</strong>会执行阻塞队列。</p> <ul> <li>AbortPolicy 默认策略，拒绝任务，并抛出异常</li> <li>CallerRunsPolicy 调用线程执行对于的任务</li> <li>DiscardPolicy 拒绝任务，不会抛出异常</li> <li>DiscardOldestPolicy 有多余的任务，把阻塞队列最老的任务丢弃，放入新的任务，直到没有新的任务。<br /><strong>如果觉得文章对你有帮助的话，请点个推荐吧!</strong></li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19727.htm">解决go-micro与其它gRPC框架之间的通信问题</a></p>
+                                        <p>下一个：<a href="/news/article-20185.htm">妙三多疫苗多久生效（妙三多疫苗多久打一针）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-node-subscribe-links.htm" title="10月27日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">10月27日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19726.htm" title="Spring boot+LogBack+MDC实现链路追踪">Spring boot+LogBack+MDC实现链路追踪</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-subscribe-node.htm" title="8月27日 | Free Trojan Node节点订阅每天更新19.4M/S免费节点订阅链接">8月27日 | Free Trojan Node节点订阅每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-trojan-windows.htm" title="11月13日 | Free Trojan Node节点订阅每天更新20.3M/S免费节点订阅链接">11月13日 | Free Trojan Node节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-high-speed-nodes.htm" title="10月5日 | Free Trojan Node节点订阅每天更新22.4M/S免费节点订阅链接">10月5日 | Free Trojan Node节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-node-share.htm" title="11月4日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接">11月4日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-high-speed-nodes.htm" title="11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-trojan-node-github.htm" title="11月23日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接">11月23日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="10月29日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">10月29日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe.htm" title="11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
