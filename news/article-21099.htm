@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-21099.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>如何使用正则表达式验证IP地址</title>
+        <meta name="description" content="IP地址正则表达式模式  ^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\. ([01]?\\d\\d?|2" />
+        <link rel="icon" href="__ADDON__/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>如何使用正则表达式验证IP地址</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <article id="main-content" style="font-size: 16px;" rel="nofollow"> <p> IP地址正则表达式模式 </p> <pre class="has"><code class="language-java">^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\. ([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$</code></pre> <p> 描述 </p> <pre class="has"><code class="language-java">^		#start of the line  (		#  start of group #1    [01]?\\d\\d? #    Can be one or two digits. If three digits appear, it must start either 0 or 1 		#    e.g ([0-9], [0-9][0-9],[0-1][0-9][0-9])     |		#    ...or    2[0-4]\\d	#    start with 2, follow by 0-4 and end with any digit (2[0-4][0-9])      |           #    ...or    25[0-5]      #    start with 2, follow by 5 and ends with 0-5 (25[0-5])   )		#  end of group #2   \.            #  follow by a dot "." ....            # repeat with 3 times (3x) $		#end of the line</code></pre> <p> 整个组合表示从0到255的数字，后跟点“。”，重复4次并以点“。”结尾。 有效的IP地址格式为“ 0-255.0-255.0-255.0-255”。 </p> <h2> 1. Java正则表达式示例 </h2> <div class="notranslate">   IPAddressValidator.java  </div> <pre class="has"><code class="language-java">package com.mkyong.regex;  import java.util.regex.Matcher; import java.util.regex.Pattern;   public class IPAddressValidator{ 	     private Pattern pattern;     private Matcher matcher;       private static final String IPADDRESS_PATTERN =  		"^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." + 		"([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." + 		"([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." + 		"([01]?\\d\\d?|2[0-4]\\d|25[0-5])$"; 	       public IPAddressValidator(){ 	  pattern = Pattern.compile(IPADDRESS_PATTERN);     } 	      /**     * Validate ip address with regular expression     * @param ip ip address for validation     * @return true valid ip address, false invalid ip address     */     public boolean validate(final String ip){		   	  matcher = pattern.matcher(ip); 	  return matcher.matches();	    	         } }</code></pre> <div class="ads-container"> <div class="d-none d-lg-block"> <div></div> </p></div> </p></div> <h2> 2.符合的IP地址： </h2> <p> 1.“ 1.1.1.1”，“ 255.255.255.255”，“ 192.168.1.1”， <br /> 2.“ 10.10.1.1”，“ 132.254.111.10”，“ 26.10.2.10”， <br /> 3.“ 127.0.0.1” </p> <h2> 3. IP地址不匹配： </h2> <p> 1.“ 10.10.10” –必须为4“。” <br /> 2.“ 10.10” –必须为4“。” <br /> 3.“ 10” –必须为4“。” <br /> 4.“ aaaa” –仅允许数字 <br /> 5.“ 10.0.0.a” –仅允许数字 <br /> 6.“ 10.10.10.256” –数字必须介于[0-255]之间 <br /> 7.“ 222.222.2.999” –数字必须介于[0-255]之间 <br /> 8.“ 999.10.10.20” –数字必须介于[0-255]之间 <br /> 9.“ 2222.22.22.22” –数字必须介于[0-255]之间 <br /> 10.“ 22.2222.22.2” –数字必须介于[0-255]之间 </p> <h2> 4.单元测试 </h2> <div class="notranslate">   IPAddressValidatorTest.java  </div> <pre class="has"><code class="language-java">package com.mkyong.regex;  import org.testng.Assert; import org.testng.annotations.*;   /**  * IPAddress validator Testing  * @author mkyong  *  */ public class IPAddressValidatorTest {   	private IPAddressValidator ipAddressValidator;      	@BeforeClass         public void initData(){ 		ipAddressValidator = new IPAddressValidator();         }      	@DataProvider 	public Object[][] ValidIPAddressProvider() { 		return new Object[][]{ 		   new Object[] {"1.1.1.1"},new Object[] {"255.255.255.255"},                    new Object[] {"192.168.1.1"},new Object[] {"10.10.1.1"},                    new Object[] {"132.254.111.10"},new Object[] {"26.10.2.10"}, 		   new Object[] {"127.0.0.1"} 		}; 	} 	 	@DataProvider 	public Object[][] InvalidIPAddressProvider() { 		return new Object[][]{ 		   new Object[] {"10.10.10"},new Object[] {"10.10"},                    new Object[] {"10"},new Object[] {"a.a.a.a"},                    new Object[] {"10.0.0.a"},new Object[] {"10.10.10.256"}, 		   new Object[] {"222.222.2.999"},new Object[] {"999.10.10.20"},                    new Object[] {"2222.22.22.22"},new Object[] {"22.2222.22.2"},                    new Object[] {"10.10.10"},new Object[] {"10.10.10"},	 		}; 	} 	 	@Test(dataProvider = "ValidIPAddressProvider") 	public void ValidIPAddressTest(String ip) { 		   boolean valid = ipAddressValidator.validate(ip); 		   System.out.println("IPAddress is valid : " + ip + " , " + valid); 		   Assert.assertEquals(true, valid); 	} 	 	@Test(dataProvider = "InvalidIPAddressProvider",                  dependsOnMethods="ValidIPAddressTest") 	public void InValidIPAddressTest(String ip) { 		   boolean valid = ipAddressValidator.validate(ip); 		   System.out.println("IPAddress is valid : " + ip + " , " + valid); 		   Assert.assertEquals(false, valid);  	}	 }</code></pre> <h2> 5.单元测试–结果 </h2> <pre class="has"><code class="language-markup">IPAddress is valid : 1.1.1.1 , true IPAddress is valid : 255.255.255.255 , true IPAddress is valid : 192.168.1.1 , true IPAddress is valid : 10.10.1.1 , true IPAddress is valid : 132.254.111.10 , true IPAddress is valid : 26.10.2.10 , true IPAddress is valid : 127.0.0.1 , true IPAddress is valid : 10.10.10 , false IPAddress is valid : 10.10 , false IPAddress is valid : 10 , false IPAddress is valid : a.a.a.a , false IPAddress is valid : 10.0.0.a , false IPAddress is valid : 10.10.10.256 , false IPAddress is valid : 222.222.2.999 , false IPAddress is valid : 999.10.10.20 , false IPAddress is valid : 2222.22.22.22 , false IPAddress is valid : 22.2222.22.2 , false PASSED: ValidIPAddressTest([Ljava.lang.String;@1d4c61c) PASSED: InValidIPAddressTest([Ljava.lang.String;@116471f)  ===============================================     com.mkyong.regex.IPAddressValidatorTest     Tests run: 2, Failures: 0, Skips: 0 ===============================================  =============================================== mkyong Total tests run: 2, Failures: 0, Skips: 0 ===============================================</code></pre> <h2> 参考 </h2> <ol> <li> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://en.wikipedia.org/wiki/IP_address"  target="_blank" rel="nofollow">http://en.wikipedia.org/wiki/IP_address</a> </li> </ol> <div class="post-tag d-none d-xl-block">   标签： <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mkyong.com/tag/ip-address/"  rel="nofollow">IP地址</a> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mkyong.com/tag/regex/"  rel="nofollow">正则表达式</a>  </div> <p> <input type="hidden" id="mkyong-current-postId" value="1986"/></p> <div id="mk-afterpost-related"></div> <div class="container"> <div class="row"> <div class="col"> <div class="col-centered ads-width-300"> <div></div> </p></div> </p></div> </p></div> </p></div> <blockquote> <p>翻译自: <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/"  rel="nofollow">https://mkyong.com/regular-expressions/how-to-validate-ip-address-with-regular-expression/</a></p> </blockquote> </article> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20640.htm">猫咪驱虫一般多少钱一次 猫咪驱虫一般多少钱一次啊</a></p>
+                                        <p>下一个：<a href="/news/article-21100.htm">大兴宠爱伴侣动物医院（大兴宠物医院电话号码）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-subscribe-node.htm" title="10月2日 | Free Trojan Node节点订阅每天更新22.5M/S免费节点订阅链接">10月2日 | Free Trojan Node节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20185.htm" title="妙三多疫苗多久生效（妙三多疫苗多久打一针）">妙三多疫苗多久生效（妙三多疫苗多久打一针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-trojan-node.htm" title="8月30日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">8月30日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-node-share.htm" title="10月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">10月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21554.htm" title="在Java的数字字面量中使用下划线">在Java的数字字面量中使用下划线</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-trojan-node.htm" title="8月17日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">8月17日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-22-free-node-subscribe.htm" title="8月22日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">8月22日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-trojan-node-share.htm" title="11月11日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">11月11日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-high-speed-nodes.htm" title="8月15日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">8月15日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-trojan-node-github.htm" title="11月20日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">11月20日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
