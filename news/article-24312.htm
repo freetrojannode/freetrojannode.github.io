@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-24312.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>java使用poi生成excel</title>
+        <meta name="description" content="使用poi生成excel通常包含一下几个步骤  创建一个工作簿 创建一个sheet 创建一个Row对象 创建一个cell对象(1个row+1个cell构成一个单元格) 设置单元格内容 设置单元格样式." />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>java使用poi生成excel</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<h3 id="使用poi生成excel通常包含一下几个步骤">使用poi生成excel通常包含一下几个步骤</h3> <ul> <li>创建一个工作簿</li> <li>创建一个sheet</li> <li>创建一个Row对象</li> <li>创建一个cell对象(1个row+1个cell构成一个单元格)</li> <li>设置单元格内容</li> <li>设置单元格样式. 字体 字体大小 是否加粗</li> <li>保存</li> <li>关闭流对象</li> </ul> <h3 id="生成一个工作簿">生成一个工作簿</h3> <p>2010以上格式使用<strong>XSSFWorkBook</strong>对象, 2003格式使用<strong>HSSFWorkBook</strong>对象, 其他对象操作基本一样.</p> <h3 id="生成2003格式">生成2003格式</h3> <pre><code class="language-java">public void test1() {     HSSFWorkbook workbook = new HSSFWorkbook();          CellStyle cellStyle = workbook.createCellStyle();     cellStyle.setBorderBottom(BorderStyle.THIN);     cellStyle.setBorderLeft(BorderStyle.THIN);     cellStyle.setBorderRight(BorderStyle.THIN);     cellStyle.setBorderTop(BorderStyle.THIN);          Font font = workbook.createFont();     font.setFontName("宋体");      font.setFontHeightInPoints((short) 12);     cellStyle.setFont(font);         HSSFSheet sheet = workbook.createSheet("Sheet1");     //设置单元格宽度     sheet.setColumnWidth(0, 30 * 256);     sheet.setColumnWidth(1, 30 * 256);     sheet.setColumnWidth(2, 30 * 256);          Row row0 = sheet.createRow(0);     Cell cell0 = row0.createCell(0);     cell0.setCellValue("序号");     cell0.setCellStyle(cellStyle);          Cell cell1 = row0.createCell(1);     cell1.setCellValue("姓名");          Cell cell2 = row0.createCell(2);     cell2.setCellValue("成绩");          OutputStream os = null;     try {         os = new FileOutputStream("d:\\测试生成2003.xls");         workbook.write(os);         os.close();     } catch (Exception e) {         e.printStackTrace();     } }</code></pre> <h3 id="生成2010以上格式">生成2010以上格式</h3> <pre><code class="language-java">@Test public void test2() {     XSSFWorkbook workbook = new XSSFWorkbook();          CellStyle cellStyle = workbook.createCellStyle();     cellStyle.setBorderBottom(BorderStyle.THIN);     cellStyle.setBorderLeft(BorderStyle.THIN);     cellStyle.setBorderRight(BorderStyle.THIN);     cellStyle.setBorderTop(BorderStyle.THIN);          Font font = workbook.createFont();     font.setFontName("宋体");     font.setFontHeightInPoints((short) 12);     cellStyle.setFont(font);               XSSFSheet sheet = workbook.createSheet("Sheet1");     Row row0 = sheet.createRow(0);     Cell cell0 = row0.createCell(0);     cell0.setCellValue("序号");     cell0.setCellStyle(cellStyle);          Cell cell1 = row0.createCell(1);     cell1.setCellValue("姓名");          Cell cell2 = row0.createCell(2);     cell2.setCellValue("成绩");          OutputStream os = null;     try {         os = new FileOutputStream("d:\\测试生成2010.xlsx");         workbook.write(os);         os.close();     } catch (Exception e) {         e.printStackTrace();     } }</code></pre> <h3 id="合并单元格">合并单元格</h3> <p>合并单元格在生成excel中算常见的一个场景, 通常先合并单元, 单元格内容居中,并设置单元格边框.<br /> poi合并单元格使用CellRangeAddress类, 构造函数包括4个参数firstRow, lastRow, firstCol, lastCol根据自己需要传入行和列.</p> <pre><code class="language-java">public CellRangeAddress(int firstRow, int lastRow, int firstCol, int lastCol) {          }</code></pre> <p>合并单元格后设置边框poi已提供了RegionUtil静态类, 可直接使用.</p> <pre><code class="language-java">CellRangeAddress region = new CellRangeAddress(0, 0, 0, 2); sheet.addMergedRegion(region);  RegionUtil.setBorderBottom(BorderStyle.THIN, region, sheet); RegionUtil.setBorderLeft(BorderStyle.THIN, region, sheet); RegionUtil.setBorderTop(BorderStyle.THIN, region, sheet); RegionUtil.setBorderRight(BorderStyle.THIN, region, sheet);</code></pre> <h3 id="设置单元格样式">设置单元格样式</h3> <p>左右居中 上下居中 自动换行</p> <pre><code class="language-java">cellStyle.setAlignment(HorizontalAlignment.CENTER); cellStyle.setVerticalAlignment(VerticalAlignment.CENTER); cellStyle.setWrapText(true);</code></pre> <h3 id="使用springmvcspringboot导出excel">使用SpringMVC/SpringBoot导出excel</h3> <pre><code class="language-java">@Controller @GetMapping("/excel2003") public void excel2003(HttpServletResponse httpServletResponse){     try {         //2010格式设置         //response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");         //2003格式设置         response.setContentType("application/vnd.ms-excel");         httpServletResponse.addHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("学生成绩单.xls", "utf-8"));          ServletOutputStream outputStream = httpServletResponse.getOutputStream();          HSSFWorkbook workbook = new HSSFWorkbook();          CellStyle cellStyle = workbook.createCellStyle();         cellStyle.setBorderBottom(BorderStyle.THIN);         cellStyle.setBorderLeft(BorderStyle.THIN);         cellStyle.setBorderRight(BorderStyle.THIN);         cellStyle.setBorderTop(BorderStyle.THIN);          Font font = workbook.createFont();         font.setFontName("宋体");         font.setFontHeightInPoints((short) 12);         cellStyle.setFont(font);          HSSFSheet sheet = workbook.createSheet("Sheet1");         Row row0 = sheet.createRow(0);         Cell cell0 = row0.createCell(0);         cell0.setCellValue("序号");         cell0.setCellStyle(cellStyle);          Cell cell1 = row0.createCell(1);         cell1.setCellValue("姓名");          Cell cell2 = row0.createCell(2);         cell2.setCellValue("成绩");          workbook.write(outputStream);     } catch (Exception e) {         e.printStackTrace();     } }</code></pre> <h3 id="总结">总结</h3> <p>如果你在web项目中导出excel后,打开excel文件时提示文件已损坏,但是文件还可以打开, 则需要在HttpServletResponse上设置响应头, 2003和2010设置方式不同<br /> 2003<br /><strong>response.setContentType("application/vnd.ms-excel");</strong><br /> 2010<br /><strong>response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");</strong></p> <p>下载文件名如果包含中文的话需要编码<br /><strong>httpServletResponse.addHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.</strong><em><strong>encode</strong></em><strong>("学生成绩单.xls", "utf-8"));</strong><br /> 这种设置在浏览器里下载文件中文是没问题的,  只是如果你使用Swagger或者Postman测试的话,文件名还是经过编码的, 这个没问题说明文件下载已经没问题.</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-23856.htm">开一家宠物食品厂多少资金 开一家宠物食品厂多少资金啊</a></p>
+                                        <p>下一个：<a href="/news/article-24313.htm">宠物粮食创业项目计划书怎么写好（宠物鲜粮商业计划书）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-free-subscribe-node.htm" title="9月10日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接">9月10日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-free-node-subscribe.htm" title="9月20日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接">9月20日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-trojan-node-github.htm" title="11月5日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接">11月5日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-subscribe-node.htm" title="8月27日 | Free Trojan Node节点订阅每天更新19.4M/S免费节点订阅链接">8月27日 | Free Trojan Node节点订阅每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21555.htm" title="动态指针时钟：利用pyqt5制作指针钟表显示实时时间">动态指针时钟：利用pyqt5制作指针钟表显示实时时间</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-trojan-node.htm" title="11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接">11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-free-subscribe-node.htm" title="9月12日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接">9月12日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-trojan-node.htm" title="12月8日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接">12月8日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-trojan-node-github.htm" title="10月19日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">10月19日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-today-trojan-node.htm" title="9月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">9月21日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
