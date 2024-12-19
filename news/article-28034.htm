@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-28034.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>C ++中具有最大金数的路径</title>
+        <meta name="description" content="假设在大小为m * n的金矿网格中，该矿中的每个单元格都有一个整数，表示该单元格中的金含量，0表示为空。我们必须找到在以下条件下可以收集的最大数量的黄金-   每次我们指向一个单元格时，我们都会收集该" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>C ++中具有最大金数的路径</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<p>假设在大小为m * n的金矿网格中，该矿中的每个单元格都有一个整数，表示该单元格中的金含量，0表示为空。我们必须找到在以下条件下可以收集的最大数量的黄金-</p> <ul class="list-paddingleft-2"> <li> <p>每次我们指向一个单元格时，我们都会收集该单元格中的所有黄金。</p> </li> <li> <p>从我们的位置，我们可以向左，向右，向上或向下走一步。</p> </li> <li> <p>我们不能多次访问同一个单元。</p> </li> <li> <p>切勿访问0金的单元格。</p> </li> </ul> <p>因此，如果输入类似于[[0,6,0]，[5,8,7]，[0,9,0]]，则结果将为24。获得最大黄金的路径为9-&gt; 8 -&gt; 7</p> <p>为了解决这个问题，我们将遵循以下步骤-</p> <ul class="list-paddingleft-2"> <li> <p>制作一个称为dfs的方法，即采用格网n，m，i和j。这将如下所示</p> </li> <li> <p>如果i&gt; = n或j&gt; = m或i &lt;0或j &lt;0或grid [i，j] = -1或grid [i，j] = 0，则返回0</p> </li> <li> <p>temp：= grid [i，j]，成本：= grid [i，j] and grid [i，j] = -1</p> </li> <li> <p>cost：=成本+ dfs（grid，n，m，i + 1，j），dfs（grid，n，m，i – 1，j）和dfs（grid，n，m，i，j – 1的最大值） ）</p> </li> <li> <p>grid [i，j]：=温度</p> </li> <li> <p>返回成本</p> </li> <li> <p>主要方法是</p> </li> <li> <p>n：=网格行，m：=网格列，ans：= 0</p> </li> <li> <p>对于i，范围为0至n – 1</p> </li> <ul class="list-paddingleft-2" style="list-style-type: square;"> <li> <p>如果grid [i，j]不为0，则ans：= max of ans，dfs(grid,n,m,i,j)</p> </li> <li> <p>对于j，范围从0到m – 1</p> </li> </ul> <ul class="list-paddingleft-2" style="list-style-type: square;"></ul> <li> <p>返回ans</p> </li> </ul> <p>让我们看下面的实现以更好地理解-</p> <h2>示例</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; class&nbsp;Solution&nbsp;{ &nbsp;&nbsp;&nbsp;public: &nbsp;&nbsp;&nbsp;int&nbsp;dfs(vector&lt;vector&lt;int&gt;&gt;&amp;&nbsp;grid,&nbsp;int&nbsp;n,&nbsp;int&nbsp;m,&nbsp;int&nbsp;i,&nbsp;int&nbsp;j){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(i&gt;=n&nbsp;||&nbsp;j&gt;=m&nbsp;||i&lt;0||j&lt;0&nbsp;||&nbsp;grid[i][j]==-1&nbsp;||&nbsp;grid[i][j]&nbsp;==&nbsp;0)return&nbsp;0; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;temp&nbsp;=grid[i][j]; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;cost&nbsp;=&nbsp;grid[i][j]; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid[i][j]&nbsp;=&nbsp;-1; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cost+=max({dfs(grid,n,m,i+1,j),dfs(grid,n,m,i-1,j),dfs(grid,n,m,i,j+1),dfs(grid,n,m,i,j-1)}); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid[i][j]&nbsp;=&nbsp;temp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;cost; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;int&nbsp;getMaximumGold(vector&lt;vector&lt;int&gt;&gt;&amp;&nbsp;grid)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;n&nbsp;=&nbsp;grid.size()&nbsp;; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;m&nbsp;=&nbsp;grid[0].size(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;ans&nbsp;=&nbsp;0; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=0;i&lt;n;i++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;j&nbsp;=0;j&lt;m;j++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(grid[i][j]){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//cout&nbsp;&lt;&lt;&nbsp;"Start&nbsp;:&nbsp;"&nbsp;&lt;&lt;&nbsp;i&nbsp;&lt;&lt;"&nbsp;"&nbsp;&lt;&lt;&nbsp;j&nbsp;&lt;&lt;&nbsp;endl; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ans&nbsp;=&nbsp;max(ans,dfs(grid,n,m,i,j)); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ans; &nbsp;&nbsp;&nbsp;} }; main(){ &nbsp;&nbsp;&nbsp;vector&lt;vector&lt;int&gt;&gt;&nbsp;v&nbsp;=&nbsp;{{0,6,0},{5,8,7},{0,9,0}}; &nbsp;&nbsp;&nbsp;Solution&nbsp;ob; &nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;(ob.getMaximumGold(v)); }</pre> <h2>输入项</h2> <pre>[[0,6,0],[5,8,7],[0,9,0]]</pre> <p>输出结果</p> <pre>24</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27570.htm">动物疫苗销售需要什么手续呢多少钱一针（动物疫苗经销商）</a></p>
+                                        <p>下一个：<a href="/news/article-28035.htm">不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24312.htm" title="java使用poi生成excel">java使用poi生成excel</a></li>
+                        <li class="py-2"><a href="/news/article-22930.htm" title="妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）">妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe.htm" title="11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-trojan-node-github.htm" title="11月20日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">11月20日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-node-subscribe.htm" title="10月29日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">10月29日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-latest-trojan-node.htm" title="10月7日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接">10月7日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-node-share.htm" title="10月23日 | Free Trojan Node节点订阅每天更新21.9M/S免费节点订阅链接">10月23日 | Free Trojan Node节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-17-free-trojan-node.htm" title="8月17日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">8月17日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe.htm" title="11月2日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">11月2日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24313.htm" title="宠物粮食创业项目计划书怎么写好（宠物鲜粮商业计划书）">宠物粮食创业项目计划书怎么写好（宠物鲜粮商业计划书）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
