@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-35051.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SDDC的Windows初体验-QT篇</title>
+        <meta name="description" content="如果熟悉爱智和看过我之前文章的朋友见到这篇文章一定会有很大疑问，SDDC 作为智能设备发现控制协议，怎么会用在 windows 上？ 这一切还是源自于我巨大的脑洞，因为这段在搞 Windows 开发，" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>SDDC的Windows初体验-QT篇</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				</h1> <p>如果熟悉爱智和看过我之前文章的朋友见到这篇文章一定会有很大疑问，SDDC 作为智能设备发现控制协议，怎么会用在 windows 上？</p> <p>这一切还是源自于我巨大的脑洞，因为这段在搞 Windows 开发，突发奇想能不能把电脑也接入到爱智上，于是就把嵌入式设备使用的 SDDC 协议移植到了 Windows 上，本文就介绍下基于 QT 移植的 libsddc 库，其实我还移植到了 VS2022 上了，这个之后再介绍吧。</p> <h2 id="软硬件选择">软硬件选择</h2> <p>这里使用 windows  开发，除了电脑也不需要其他额外的硬件了。</p> <p>软件的话，使用的是 QT 5.9.0 版本，官网下载太慢了，推荐大家下载这个清华大学开源镜像站的资源：<code>https://mirrors.tuna.tsinghua.edu.cn/qt/archive/qt/5.9/5.9.0/qt-opensource-windows-x86-5.9.0.exe</code></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3cc970bb5bd1c572142dd46bffef8b85.jpg" alt="SDDC的Windows初体验-QT篇"></p> <h2 id="代码获取与解析">代码获取与解析</h2> <p>代码可以从我的 gitee 仓库直接获取：</p> <p><code>https://gitee.com/inspiration-desktop/windows-libsddc.git</code></p> <p>打开 libsddc 项目如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ae9d14e45c29b6ce65bd8e0cc5755ba9.jpg" alt="SDDC的Windows初体验-QT篇"></p> <p>其中 SDDC 相关代码都已基于 windows环境进行兼容修改，具体修改内容可以全局搜索<code>__WINDOWS__</code> 宏来查看，其中主要的差异是 windows 和嵌入式系统的 socket 相关实现上，还有就是多线程，QT本身就支持 pthread ，这个给移植带来了很大的便利，不像 VS 为了支持 pthread 还需要一顿折腾，对于VS的移植之后的文章再介绍吧。</p> <p>main.cpp 代码解析，主要内容是获取uuid作为设备唯一标识（其实还是我没找到合适的获取 windows MAC 地址的接口...）；</p> <pre><code class="language-c++">#include "mainwindow.h" #include &lt;QApplication&gt; #include "sddc_message_example.h" #include "sddc.h" #include "test_thread.h" #include "cJSON.h" #include &lt;QUuid&gt; #include &lt;QFile&gt; #include &lt;iostream&gt;  int main(int argc, char *argv[]) {     QApplication a(argc, argv);          // 启动可视化窗口，暂时用不到     //MainWindow w;          //w.show();      char * uuid_str;     char buffer[128];     QString uuidstr;     QUuid uuid;      // 获取uuid作为设备唯一标识     QFile file("uuid.txt");     if(file.exists()){         std::cout &lt;&lt; "file exist\n";         if(!file.open(QIODevice::ReadWrite)){             std::cout &lt;&lt; "open file failed\n";         }else{             //读取文件             //判断文件是否已经读到末尾了              while(!file.atEnd()){                 //读取数据                 memset(buffer,0,sizeof(buffer));                 qint64 length = file.readLine(buffer,128);                 if(length != -1){                     uuid_str = (char*)&amp;buffer;                     std::cout &lt;&lt; "read success\n";                 }             }             file.close();         }     }else{         if(!file.open(QIODevice::ReadWrite)){             std::cout &lt;&lt; "open file failed\n";         }else{             uuid = QUuid::createUuid();             uuidstr = uuid.toString();              uuid_str = (char *)uuidstr.remove("{").remove("}").remove("-").toStdString().data();             memset(buffer,0,sizeof(buffer));             memcpy(buffer,uuid_str,strlen(uuid_str));             uuid_str = buffer;              std::cout &lt;&lt; uuid_str &lt;&lt; std::endl;             qint64 length = -1;             length = file.write(uuid_str);              if(length == -1){                 std::cout &lt;&lt; "write file failed\n";             }else{                 std::cout &lt;&lt; "write file success\n";             }              file.close();         }     }      std::cout &lt;&lt; uuid_str &lt;&lt; std::endl;      // 启动一个新线程进行其他业务处理 	//test_thread *thread1 = new test_thread(); 	//thread1-&gt;start();      // 启动 SDDC 协议     sddc_main(uuid_str);     a.exec();      return 0; }</code></pre> <h2 id="效果">效果</h2> <p>点击左下角的绿色三角运行程序；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7204f434b18e1d1d2bff9afb0e326acb.jpg" alt="SDDC的Windows初体验-QT篇"></p> <p>可以在爱智设备搜索中发现对应设备并添加；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ab16d90922ba0310319279bb583d2215.jpg" alt="SDDC的Windows初体验-QT篇"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/18068933aa918fb14873f987cf27d9bd.jpg" alt="SDDC的Windows初体验-QT篇"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35050.htm">pymysql增删改查之insert操作</a></p>
+                                        <p>下一个：<a href="/news/article-35568.htm">python学习分享之垃圾回收-缓存机制</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-node-subscribe-links.htm" title="10月8日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接">10月8日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-high-speed-nodes.htm" title="9月9日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接">9月9日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19727.htm" title="解决go-micro与其它gRPC框架之间的通信问题">解决go-micro与其它gRPC框架之间的通信问题</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="11月30日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接">11月30日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27103.htm" title="猫粮品牌汇总大全（猫粮品牌汇总大全图）">猫粮品牌汇总大全（猫粮品牌汇总大全图）</a></li>
+                        <li class="py-2"><a href="/news/article-23407.htm" title="动物医院科室执业兽医数量 动物医院科室执业兽医数量要求">动物医院科室执业兽医数量 动物医院科室执业兽医数量要求</a></li>
+                        <li class="py-2"><a href="/news/article-35568.htm" title="python学习分享之垃圾回收-缓存机制">python学习分享之垃圾回收-缓存机制</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-20-today-trojan-node.htm" title="8月20日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接">8月20日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-trojan-windows.htm" title="12月16日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">12月16日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-18-trojan-node-github.htm" title="8月18日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接">8月18日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
