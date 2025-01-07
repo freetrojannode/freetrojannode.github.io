@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-36089.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>vue动态设置样式</title>
+        <meta name="description" content="1、添加样式绑定 &lt;div class="container" :style="{height: scrollerHeight}"&gt;&lt;/div&gt; 2、添加属性计算 comput" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>vue动态设置样式</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1、添加样式绑定<br /> &lt;div class="container" :style="{height: scrollerHeight}"&gt;&lt;/div&gt;<br /> 2、添加属性计算<br /> computed: {<!-- --><br /> &nbsp; &nbsp; // 设置滚动区高度，减去头部标题和底部tabbar的高度<br /> &nbsp; &nbsp; scrollerHeight: function() {<!-- --><br /> &nbsp; &nbsp; &nbsp; return (window.innerHeight - 50 - 50) + 'px';<br /> &nbsp; &nbsp; }<br /> &nbsp; }</p> <p>3、js获取浏览器基本信息</p> <p>网页可见区域宽：document.body.clientWidth<br /> 网页可见区域高：document.body.clientHeight<br /> 网页可见区域宽：document.body.offsetWidth (包括边线的宽)<br /> 网页可见区域高：document.body.offsetHeight (包括边线的宽)<br /> 网页正文全文宽：document.body.scrollWidth<br /> 网页正文全文高：document.body.scrollHeight<br /> 网页被卷去的高：document.body.scrollTop<br /> 网页被卷去的左：document.body.scrollLeft<br /> 网页正文部分上：window.screenTop<br /> 网页正文部分左：window.screenLeft<br /> 屏幕分辨率的高：window.screen.height<br /> 屏幕分辨率的宽：window.screen.width<br /> 屏幕可用工作区高度：window.screen.availHeight<br /> 屏幕可用工作区宽度：window.screen.availWidth<br /> scrollHeight: 获取对象的滚动高度。<br /> scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离<br /> scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离<br /> scrollWidth:获取对象的滚动宽度<br /> offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度<br /> offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置<br /> offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置<br /> event.clientX 相对文档的水平座标<br /> event.clientY 相对文档的垂直座标<br /> event.offsetX 相对容器的水平坐标<br /> event.offsetY 相对容器的垂直坐标<br /> document.documentElement.scrollTop 垂直方向滚动的值<br /> event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35569.htm">动物疫苗公司排名前十名是什么（国内动物疫苗龙头企业）</a></p>
+                                        <p>下一个：<a href="/news/article-36090.htm">动物医院需要几个兽医资格证书呢英语 动物医院需要几个兽医资格证书呢英语怎么说</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-25245.htm" title="java sm3国密算法加密、验证工具类">java sm3国密算法加密、验证工具类</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-trojan-node-share.htm" title="11月1日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接">11月1日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-latest-trojan-node.htm" title="10月21日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接">10月21日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-trojan-github.htm" title="11月15日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接">11月15日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23404.htm" title="宠物领养证怎么办理的啊（宠物领养中心领养条件是什么）">宠物领养证怎么办理的啊（宠物领养中心领养条件是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-19268.htm" title="开一家宠物店的市场前景（开一家宠物店的市场前景如何）">开一家宠物店的市场前景（开一家宠物店的市场前景如何）</a></li>
+                        <li class="py-2"><a href="/news/article-31833.htm" title="大猫养小猫多久（小猫养成大猫要多久）">大猫养小猫多久（小猫养成大猫要多久）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-trojan-windows.htm" title="12月3日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接">12月3日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30864.htm" title="win11系统如何添加pdf虚拟打印机">win11系统如何添加pdf虚拟打印机</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-node-share.htm" title="10月22日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">10月22日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

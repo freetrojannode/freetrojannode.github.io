@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-37073.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Nginx部署多个spring-boot项目(jar方式部署)</title>
+        <meta name="description" content="个人技术网站&nbsp;欢迎关注 springboot项目部署到服务器常见的方式就是打成war包部署Tomcat或者打成jar包直接使用内置容易运行，很多人现在都打成war包部署到tomcat，这种方" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>Nginx部署多个spring-boot项目(jar方式部署)</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.open-xcloud.com/"  rel="nofollow">个人技术网站</a>&nbsp;欢迎关注</p> <p>springboot项目部署到服务器常见的方式就是打成war包部署Tomcat或者打成jar包直接使用内置容易运行，很多人现在都打成war包部署到tomcat，这种方式虽然没问题 &nbsp;但是后期维护比较麻烦。从官方的说明中 打成jar部署是最好的方式，但是这样又有个问题 如果同时部署多个spring-boot项目 端口不一样 &nbsp;怎么通过域名来访问呢，接下来就需要Nginx出手了，<span style="color:#333333;">Nginx</span><span style="color:#333333;">&nbsp;是一个高性能的</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://baike.baidu.com/item/HTTP"  rel="nofollow">HTTP</a><span style="color:#333333;">和</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"  rel="nofollow">反向代理</a><span style="color:#333333;">服务器，也是一个IMAP/POP3/SMTP</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8"  rel="nofollow">服务器</a><span style="color:#333333;">。很适合部署springboot，<span style="color:#333333;">Nginx的安装这里不在做教程 &nbsp;给出主要nginx.conf的配置</span></span></p> <pre class="has"><code class="language-html">server {     listen       80;     server_name  127.0.0.1;     access_log logs/book.log;     error_log logs/book.error;      #将/wx-service请求转发给http://127.0.0.1:8011/wx-service处理     location /wx-service {         proxy_set_header Host $host;         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_pass http://127.0.0.1:8011/wx-service;     }      #将/bootdo请求转发给http://127.0.0.1:8012/bootdo处理     location /bootdo {         proxy_set_header Host $host;         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_pass http://127.0.0.1:8012/bootdo;     }      #将/xcloud-service请求转发给http://127.0.0.1:8013/xcloud-api处理     location /xcloud-service {         proxy_set_header Host $host;         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_pass http://127.0.0.1:8013/xcloud-api;     }      #将/eureka-service请求转发给http://127.0.0.1:8081/eureka-service处理     location /eureka-service {         proxy_pass http://127.0.0.1:8081/eureka-service; #这里的端口记得改成项目对应的哦         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_set_header X-Forwarded-Proto $scheme;         proxy_set_header X-Forwarded-Port $server_port;     }      #将/xcloud-api请求转发给http://127.0.0.1:8082/xcloud-api处理     location /xcloud-api {         proxy_pass http://127.0.0.1:8082/xcloud-api; #这里的端口记得改成项目对应的哦         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_set_header X-Forwarded-Proto $scheme;         proxy_set_header X-Forwarded-Port $server_port;     } }</code></pre> <p><span style="color:#333333;"><span style="color:#333333;">将nginx的端口改成80端口 域名就可以直接访问 service_name可以为localhost 代表本机 localtion /XXX这块就是配置nginx端口转发 不输了几个项目就配置几个 也可以将tomcat中的项目配置在这 也是没问题的 &nbsp;根据上述配置 在sbin目录执行 ./nginx -s reload 刷新nginx配置就会生效了</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">在这提供一个spring-boot快速重启shell脚本 亲测有效</span></span></p> <pre class="has"><code class="language-html">export JAVA_HOME=/usr/local/java/jdk1.8.0_162 export PATH=$JAVA_HOME/bin:$PATH export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar  Port=8081 JarName=clouddo-server.jar LogsPatch=./logs_$Port   ID=`ps -ef | grep $Port | grep -v "grep" | awk '{print $2}'`   echo $ID   echo "---------------"   for id in $ID   do   kill -s 9 $id   echo "killed $id"   done   echo "---------------"    rm -rf $LogsPatch mkdir $LogsPatch  export LANG=zh_CN.UTF-8  set -m   nohup java -jar -Dlogging.path=$LogsPatch  $JarName&gt;$LogsPatch/catlina.out 2&gt;&amp;1 &amp;  tail -f $LogsPatch/catlina.out</code></pre> <p><span style="color:#333333;"><span style="color:#333333;">保存命名为xx.sh</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">记住 &nbsp;springboot项目得在配置文件中配置</span></span></p> <pre class="has"><code class="language-html">server:   &nbsp;&nbsp;&nbsp;context-path: /xcloud-api</code></pre> <p><span style="color:#555555;">Spring boot</span><span style="color:#555555;">默认是</span><span style="color:#555555;">/<span style="color:#555555;">这样直接通过</span><span style="color:#555555;"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://ip/"  rel="nofollow">http://ip:port/</a></span><span style="color:#555555;">就可以访问到</span><span style="color:#555555;">index</span><span style="color:#555555;">页面 但是我们要通过nginx配置多项目的话就要给每一个项目单独指定context-path</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">在服务器目录根据个人喜好新建一个文件夹 专门用来存放spring-boot打包成的jar 和重启脚本 类似这样</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;"><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/55bd5125e3da3cfc8ca9eb38a41670c5.jpg"></span></span></p> <p><span style="color:#333333;"><span style="color:#333333;"><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/7afe4fdad32b1ca22dc1dbd4e0e3efa5.jpg"></span></span></p> <p><span style="color:#333333;"><span style="color:#333333;"><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/4d97a92bc117c4d768d14810e85bb708.jpg"></span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">这样方便管理 logs目录是启动脚本之后生成的日志文件夹 &nbsp;忽略 一个项目对应一个文件夹 里面包含项目jar和一个重启shell脚本</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">这样就可以同时后台启动多个springboot项目并且通过一个域名来访问这些项目 &nbsp;如果要实时查看日志 请进入到每个项目文件的logs-目录执行</span></span></p> <p><span style="color:#333333;"><span style="color:#333333;">tail -f catlina.out就可以查看了 &nbsp; 如有不足请指出 &nbsp;多多谅解......</span></span></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-36585.htm">动物防疫***收费吗现在怎么收费（动物防疫疫苗）</a></p>
+                                        <p>下一个：<a href="/news/article-37076.htm">宠物粮食品牌名字4个字大全及图片视频 宠物粮食品牌名字4个字大全及图片视频教程</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-today-trojan-node.htm" title="10月15日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">10月15日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-trojan-windows.htm" title="11月13日 | Free Trojan Node节点订阅每天更新20.3M/S免费节点订阅链接">11月13日 | Free Trojan Node节点订阅每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-trojan-node.htm" title="10月10日 | Free Trojan Node节点订阅每天更新22.9M/S免费节点订阅链接">10月10日 | Free Trojan Node节点订阅每天更新22.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-node-share-links.htm" title="12月14日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">12月14日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-today-trojan-node.htm" title="1月2日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接">1月2日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-node-subscribe.htm" title="12月25日 | Free Trojan Node节点订阅每天更新21.2M/S免费节点订阅链接">12月25日 | Free Trojan Node节点订阅每天更新21.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-trojan-windows.htm" title="11月12日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接">11月12日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-trojan-node.htm" title="1月1日 | Free Trojan Node节点订阅每天更新19.5M/S免费节点订阅链接">1月1日 | Free Trojan Node节点订阅每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-today-trojan-node.htm" title="12月6日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接">12月6日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接">1月5日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">20</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
