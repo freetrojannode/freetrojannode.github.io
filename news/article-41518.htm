@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-41518.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>C ++中的搜索建议系统</title>
+        <meta name="description" content="假设我们有一个字符串产品数组和一个名为searchWord的字符串。我们想要设计一个模块，在键入searchWord的每个字符后，最多建议产品列表中的三个产品名称。建议的产品应与searchWord共" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>C ++中的搜索建议系统</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<p>假设我们有一个字符串产品数组和一个名为searchWord的字符串。我们想要设计一个模块，在键入searchWord的每个字符后，最多建议产品列表中的三个产品名称。建议的产品应与searchWord共同使用前缀。当具有共同前缀的三个以上的产品时，返回三个词典最小的产品。因此，我们必须在键入searchWord的每个字符后找到建议产品的列表。</p> <p>如果输入是：[[“ mobile”，“ mouse”，“ moneypot”，“ monitor”，“ mousepad”]，而searchWord是“ mouse”，则输出将是[[“ mobile”，“ moneypot” ，“显示器”]，[“移动”，“钱罐”，“显示器”]，[“鼠标”，“鼠标垫”]，[“鼠标”，“鼠标垫”]，[“鼠标”，“鼠标垫”]]</p> <p>为了解决这个问题，我们将遵循以下步骤-</p> <ul class="list-paddingleft-2"> <li> <p>定义字符串类型键的映射m和字符串值列表</p> </li> <li> <p>对产品数组p排序</p> </li> <li> <p>当我在0到p – 1的范围内</p> </li> <ul class="list-paddingleft-2" style="list-style-type: square;"> <li> <p>x：= x + p [i，j]</p> </li> <li> <p>如果m [x]的长度&lt;3，则将p [i]插入m [x]列表</p> </li> <li> <p>x：=空字符串</p> </li> <li> <p>对于范围从0到p [i] – 1的长度的j</p> </li> </ul> <ul class="list-paddingleft-2" style="list-style-type: square;"></ul> <li> <p>创建字符串矩阵res，设置temp：=空字符串</p> </li> <li> <p>当我的范围是0到s的大小– 1</p> </li> <ul class="list-paddingleft-2" style="list-style-type: square;"> <li> <p>temp：= temp + s [i]</p> </li> <li> <p>将m [temp]插入res</p> </li> </ul> <li> <p>返回资源</p> </li> </ul> <p>让我们看下面的实现以更好地理解-</p> <h2>示例</h2> <pre>#include&nbsp;&lt;bits/stdc++.h&gt; using&nbsp;namespace&nbsp;std; void&nbsp;print_vector(vector&lt;vector&lt;auto&gt;&nbsp;&gt;&nbsp;v){ &nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"["; &nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&lt;v.size();&nbsp;i++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"["; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;v[i].size();&nbsp;j++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;v[i][j]&nbsp;&lt;&lt;&nbsp;",&nbsp;"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"],"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;"]"&lt;&lt;endl; } class&nbsp;Solution&nbsp;{ &nbsp;&nbsp;&nbsp;public: &nbsp;&nbsp;&nbsp;vector&lt;vector&lt;string&gt;&gt;&nbsp;suggestedProducts(vector&lt;string&gt;&amp;&nbsp;p, &nbsp;&nbsp;&nbsp;string&nbsp;s)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;map&nbsp;&lt;string,&nbsp;vector&nbsp;&lt;&nbsp;string&nbsp;&gt;&nbsp;&gt;&nbsp;m;; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sort(p.begin(),&nbsp;p.end()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;p.size();&nbsp;i++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;x&nbsp;=&nbsp;""; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;j&nbsp;=&nbsp;0;&nbsp;j&nbsp;&lt;&nbsp;p[i].size();&nbsp;j++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;+=&nbsp;p[i][j]; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(m[x].size()&lt;3)m[x].push_back(p[i]); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vector&nbsp;&lt;&nbsp;vector&nbsp;&lt;string&gt;&nbsp;&gt;&nbsp;res; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;temp&nbsp;=&nbsp;""; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;s.size();&nbsp;i++){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temp&nbsp;+=&nbsp;s[i]; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.push_back(m[temp]); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;res; &nbsp;&nbsp;&nbsp;} }; main(){ &nbsp;&nbsp;&nbsp;vector&lt;string&gt;&nbsp;v&nbsp;= &nbsp;&nbsp;&nbsp;{"mobile","mouse","moneypot","monitor","mousepad"}; &nbsp;&nbsp;&nbsp;Solution&nbsp;ob; &nbsp;&nbsp;&nbsp;print_vector(ob.suggestedProducts(v,&nbsp;"mouse")); }</pre> <h2>输入项</h2> <pre>["mobile","mouse","moneypot","monitor","mousepad"] "mouse"</pre> <p>输出结果</p> <pre>[[mobile,&nbsp;moneypot,&nbsp;monitor,&nbsp;],[mobile,&nbsp;moneypot,&nbsp;monitor,&nbsp;],[mouse, mousepad,&nbsp;],[mouse,&nbsp;mousepad,&nbsp;],[mouse,&nbsp;mousepad,&nbsp;],]</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-41517.htm">Python while循环如何工作？</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23407.htm" title="动物医院科室执业兽医数量 动物医院科室执业兽医数量要求">动物医院科室执业兽医数量 动物医院科室执业兽医数量要求</a></li>
+                        <li class="py-2"><a href="/news/article-36089.htm" title="vue动态设置样式">vue动态设置样式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-trojan-node-github.htm" title="10月19日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">10月19日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-node-share.htm" title="10月11日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接">10月11日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-node-subscribe.htm" title="11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">11月14日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-node-subscribe-links.htm" title="10月13日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">10月13日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26637.htm" title="动物疫苗的管理方法不包括哪些（动物疫苗法规）">动物疫苗的管理方法不包括哪些（动物疫苗法规）</a></li>
+                        <li class="py-2"><a href="/news/article-41038.htm" title="太原哪里可以领养小狗（太原哪里可以领养小狗狗）">太原哪里可以领养小狗（太原哪里可以领养小狗狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="10月9日 | Free Trojan Node节点订阅每天更新21.5M/S免费节点订阅链接">10月9日 | Free Trojan Node节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-subscribe-node.htm" title="11月28日 | Free Trojan Node节点订阅每天更新18.4M/S免费节点订阅链接">11月28日 | Free Trojan Node节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
