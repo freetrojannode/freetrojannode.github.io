@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-48359.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)</title>
+        <meta name="description" content="从编写最初版本用于验算SM2，SM3和SM4算法的辅助工具已有一年多的时间了，国密算法的应用和普及也是不温不火的。编写最初算法代码和工具时所参考的文档还非正式的国密标准文件，而目前国密标准文件发布了几" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-48359.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/3d8c95198afb4895b7da4de6a86d2209.webp" />
+        <meta property="og:release_date" content="2025-01-30T06:45:07" />
+    <meta property="og:updated_time" content="2025-01-30T06:45:07" />
+        <meta property="og:description" content="从编写最初版本用于验算SM2，SM3和SM4算法的辅助工具已有一年多的时间了，国密算法的应用和普及也是不温不火的。编写最初算法代码和工具时所参考的文档还非正式的国密标准文件，而目前国密标准文件发布了几" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                                <a href="/">
+                    <span>Free Trojan Node</span>
+                </a>
+                            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                        <li><a class="nav-link" href="#">关于</a></li>
+                    <li><a class="nav-link" href="#">联系</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:24px"></span><span style="font-size:18px">从编写最初版本用于<span style="font-size:18px">验算</span>SM2，SM3和SM4算法的辅助工具已有一年多的时间了，国密算法的应用和普及也是不温不火的。编写最初算法代码和工具时所参考的文档还非正式的国密标准文件，而目前国密标准文件发布了几个系列了，为国密算法应用提供了有力的参考和帮助，特别人行发布了PBOC3.0标准，其增强部分的国密算法应用部分，为国密算法在金融领域应用打下标准基础，也为厂商和开发提供了有力的帮助和指导。</span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国密局同时也发布了使用国密SM3和SM4算法的OTP算法标准，并首推在金融领域应用，笔者有幸参与了某股份制银行使用国密OTP算法的应用工作，最初参考标准为讨论稿，使用的算法为SM1和SM3算法，与最新的国家标准区别为把SM1改为SM4，但应用和算法上区别不大，在笔者同各厂家（其中包括国家标准的编制厂商）交流和合作过程中，对其他标准部分体会还不深，但至少对OTP标准这部分体会颇多，发布的标准和数据说明相当的不够严谨，数据与算法描述完全不同，最新公布的正式版OTP部分也是如此（算法说明与数据样例不一致），还需要开发者自己去鉴别和理解，还希望以国家身份的标准制定和审定要谨慎啊。</span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PBOC3.0标准重点描述了SM4、SM3和SM2算法应用，对称部分应用描述的比较完善可以参考进行工程开发，而SM2证书部分只说明了发卡行和IC部分，而根CA部分的就没有涉及，这一点上同PBOC2.0相同，要进行系统开发还需要找到CA部分标准，目前还没有正式规范发布。SM2的IC证书与RSA的证书最大区别在于RSA对数据进行了私钥加密，之后用公钥解密，而SM2对数据使用私钥签名，数据为明文，使用时对数据进行验证，这点在证书应用上是不同，同时SM2证书的数据量要少，私钥不需要CRT，公钥也没有余项。</span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 笔者编写的升级版的工具增加了功能为4项，1.OTP算法（SM3和SM4应用，用于动态口令生成），2.PBOC（对称算法SM4，MAC计算、数据加密解密、ARQC和ARPC、子密钥离散），3.SM2根CA部分（使用SM2算法，签发CA根证书、验证根证书、验证发卡行证书输入和签发发卡行证书），4.SM2发卡行证书（生成发卡行证书输入文件，签发IC证书和验证IC证书），需要说明的是，PBOC3.0的SM2证书部分实现为参考国密算法IC根CA证书方案的草案完成，与最终的正式版可能会有所出入。</span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 新增算法工具界面如下：</span></p> <p><span style="font-size:18px"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220820/3201354ec3ef20f25afdc049b5f2ae1f.jpg"></span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.&nbsp;OTP算法功能界面</span></p> <p><span style="font-size:18px"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220820/be0a66dbf3ec566902b1bc7f53cc5f6a.jpg"></span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.PBOC对称算法功能界面</span></p> <p><span style="font-size:18px"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220820/61bfa967817ab3ae2eadcebcfd12e540.jpg"></span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 3.SM2根CA证书功能界面</span></p> <p><span style="font-size:18px"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220820/3068828028897f925f0b3ca5f1719bc8.jpg"></span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 4.SM2发卡行证书功能界面</span></p> <p><span style="font-size:18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果有相关测试数据的朋友，可提供一些数据，用于验证工具功能正确性。</span></p> <p><span style="font-size:18px"></span></p> <p><span style="font-size:24px"></span></p> <p><span style="font-size:24px"></span></p> <p><span style="font-size:24px"></span></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-47949.htm">动物疫苗哪个好 动物疫苗品牌</a></p>
+                                        <p>下一个：<a href="/news/article-48360.htm">HCNP Routing&amp;Switching之Super VLAN_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-35568.htm" title="python学习分享之垃圾回收-缓存机制">python学习分享之垃圾回收-缓存机制</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-trojan-node-github.htm" title="1月27日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接">1月27日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45999.htm" title="青岛想念动物医院电话号码查询地址（青岛想念动物医院电话号码查询地址）">青岛想念动物医院电话号码查询地址（青岛想念动物医院电话号码查询地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-latest-trojan-node.htm" title="10月21日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接">10月21日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27102.htm" title="我们如何将值添加到MySQL表的列中？">我们如何将值添加到MySQL表的列中？</a></li>
+                        <li class="py-2"><a href="/news/article-39529.htm" title="济南宠物领养活动 济南宠物领养活动有哪些">济南宠物领养活动 济南宠物领养活动有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-38545.htm" title="DDT数据驱动性能测试(一)">DDT数据驱动性能测试(一)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-free-node-subscribe.htm" title="1月16日 | Free Trojan Node节点订阅每天更新21.4M/S免费节点订阅链接">1月16日 | Free Trojan Node节点订阅每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share.htm" title="1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接">1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42512.htm" title="使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA">使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/glightbox/js/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
