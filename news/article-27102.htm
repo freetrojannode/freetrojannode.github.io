@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freetrojannode.github.io/news/article-27102.htm" />
@@ -8,14 +8,42 @@
     <title>我们如何将值添加到MySQL表的列中？</title>
         <meta name="description" content="INSERT命令用于将值添加到MySQL表的列中。我们需要在INSERT命令中为所有列指定值，如下所示： 语法 INSERT&nbsp;INTO&nbsp;table_name&nbsp;values" />
         <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-27102.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="我们如何将值添加到MySQL表的列中？" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/e2d811f071d63993620946d52679d5ba.webp" />
+        <meta property="og:release_date" content="2024-12-17T10:14:20" />
+    <meta property="og:updated_time" content="2024-12-17T10:14:20" />
+        <meta property="og:description" content="INSERT命令用于将值添加到MySQL表的列中。我们需要在INSERT命令中为所有列指定值，如下所示： 语法 INSERT&nbsp;INTO&nbsp;table_name&nbsp;values" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="我们如何将值添加到MySQL表的列中？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -86,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-node-subscribe-links.htm" title="11月6日 | Free Trojan Node节点订阅每天更新18.7M/S免费节点订阅链接">11月6日 | Free Trojan Node节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-trojan-node-share.htm" title="8月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">8月12日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-node-subscribe-links.htm" title="10月26日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接">10月26日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-trojan-windows.htm" title="9月13日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接">9月13日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-trojan-node-github.htm" title="9月30日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接">9月30日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22930.htm" title="妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）">妙三多猫三联一共几针,多少钱（妙三多猫三联一盒几支）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-18-trojan-node-github.htm" title="8月18日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接">8月18日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24312.htm" title="java使用poi生成excel">java使用poi生成excel</a></li>
-                        <li class="py-2"><a href="/news/article-24785.htm" title="猫三针疫苗打完多久打狂犬（猫三针疫苗打完多久打狂犬疫苗好）">猫三针疫苗打完多久打狂犬（猫三针疫苗打完多久打狂犬疫苗好）</a></li>
-                        <li class="py-2"><a href="/news/article-31833.htm" title="大猫养小猫多久（小猫养成大猫要多久）">大猫养小猫多久（小猫养成大猫要多久）</a></li>
+                        <li class="py-2"><a href="/news/article-48359.htm" title="国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)">国密算法(SM2，SM3，SM4)辅助工具升级版(OTP+PBOC3.0)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-trojan-node-github.htm" title="11月5日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接">11月5日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-49455.htm" title="上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）">上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-trojan-windows.htm" title="12月11日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">12月11日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-trojan-github.htm" title="11月24日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接">11月24日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-48964.htm" title="宠物粮食在哪里进货好卖呢图片（宠物粮在哪里买）">宠物粮食在哪里进货好卖呢图片（宠物粮在哪里买）</a></li>
+                        <li class="py-2"><a href="/news/article-30388.htm" title="动物医院好评模板图片大全集最新（动物医院美团好评）">动物医院好评模板图片大全集最新（动物医院美团好评）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share.htm" title="1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接">1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40534.htm" title="上海免费领养猫上海宠物领（上海有没有免费领养宠物的）">上海免费领养猫上海宠物领（上海有没有免费领养宠物的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-trojan-node.htm" title="1月3日 | Free Trojan Node节点订阅每天更新18.5M/S免费节点订阅链接">1月3日 | Free Trojan Node节点订阅每天更新18.5M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -107,22 +135,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

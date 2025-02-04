@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freetrojannode.github.io/news/article-27569.htm" />
@@ -8,14 +8,42 @@
     <title>PostgreSQL执行计划：Bitmap scan VS index only scan</title>
         <meta name="description" content="之前了解过postgresql的Bitmap scan，只是粗略地了解到是通过标记数据页面来实现数据检索的，执行计划中的的Bitmap scan一些细节并不十分清楚。这里借助一个执行计划来分析bitm" />
         <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-27569.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="PostgreSQL执行计划：Bitmap scan VS index only scan" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/c54aabf7432a97b30835e41663f1b24a.webp" />
+        <meta property="og:release_date" content="2024-12-18T09:53:38" />
+    <meta property="og:updated_time" content="2024-12-18T09:53:38" />
+        <meta property="og:description" content="之前了解过postgresql的Bitmap scan，只是粗略地了解到是通过标记数据页面来实现数据检索的，执行计划中的的Bitmap scan一些细节并不十分清楚。这里借助一个执行计划来分析bitm" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PostgreSQL执行计划：Bitmap scan VS index only scan">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -86,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-node-subscribe-links.htm" title="9月25日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接">9月25日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22471.htm" title="我们如何按降序对MySQL输出进行排序？">我们如何按降序对MySQL输出进行排序？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="10月31日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接">10月31日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20185.htm" title="妙三多疫苗多久生效（妙三多疫苗多久打一针）">妙三多疫苗多久生效（妙三多疫苗多久打一针）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe.htm" title="8月13日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接">8月13日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-high-speed-nodes.htm" title="8月15日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接">8月15日 | Free Trojan Node节点订阅每天更新21.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-trojan-node-github.htm" title="11月23日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接">11月23日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe-links.htm" title="12月21日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接">12月21日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="10月9日 | Free Trojan Node节点订阅每天更新21.5M/S免费节点订阅链接">10月9日 | Free Trojan Node节点订阅每天更新21.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28035.htm" title="不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）">不宜养猫的4个属相男人是什么（不宜养猫的4个属相男人是什么星座）</a></li>
+                        <li class="py-2"><a href="/news/article-42512.htm" title="使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA">使用 bitnami/postgresql-repmgr 镜像快速设置 PostgreSQL HA</a></li>
+                        <li class="py-2"><a href="/news/article-31833.htm" title="大猫养小猫多久（小猫养成大猫要多久）">大猫养小猫多久（小猫养成大猫要多久）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-high-speed-nodes.htm" title="11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43506.htm" title="宠物领养协议书范本免费版大全图文（宠物领养协议书范本免费版大全图文解释）">宠物领养协议书范本免费版大全图文（宠物领养协议书范本免费版大全图文解释）</a></li>
+                        <li class="py-2"><a href="/news/article-40533.htm" title="Kafka的零拷贝原理解析">Kafka的零拷贝原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-44499.htm" title="显卡1060哪个牌子性价比高(显卡排行榜1060)">显卡1060哪个牌子性价比高(显卡排行榜1060)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="1月5日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接">1月5日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-trojan-github.htm" title="11月15日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接">11月15日 | Free Trojan Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-trojan-node.htm" title="11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接">11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39529.htm" title="济南宠物领养活动 济南宠物领养活动有哪些">济南宠物领养活动 济南宠物领养活动有哪些</a></li>
                     </ul>
     </div>
 </div>
@@ -107,22 +135,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

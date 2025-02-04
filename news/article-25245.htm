@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freetrojannode.github.io/news/article-25245.htm" />
@@ -8,14 +8,42 @@
     <title>java sm3国密算法加密、验证工具类</title>
         <meta name="description" content="java sm3国密算法加密、验证工具类  说明   maven依赖 完整代码 测试      由于本人并不专于算法和密码学，所以如果发现工具类存在问题或者可优化地方，欢迎评论处提出。 工具类也可以直" />
         <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-25245.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="java sm3国密算法加密、验证工具类" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/5dfd63e4b7405620bb61312a0619d2ef.webp" />
+        <meta property="og:release_date" content="2024-12-13T12:04:38" />
+    <meta property="og:updated_time" content="2024-12-13T12:04:38" />
+        <meta property="og:description" content="java sm3国密算法加密、验证工具类  说明   maven依赖 完整代码 测试      由于本人并不专于算法和密码学，所以如果发现工具类存在问题或者可优化地方，欢迎评论处提出。 工具类也可以直" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java sm3国密算法加密、验证工具类">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -86,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-28034.htm" title="C ++中具有最大金数的路径">C ++中具有最大金数的路径</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-node-subscribe-links.htm" title="10月26日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接">10月26日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27103.htm" title="猫粮品牌汇总大全（猫粮品牌汇总大全图）">猫粮品牌汇总大全（猫粮品牌汇总大全图）</a></li>
-                        <li class="py-2"><a href="/news/article-29904.htm" title="如何给动物注射（怎么给动物注射药物）">如何给动物注射（怎么给动物注射药物）</a></li>
-                        <li class="py-2"><a href="/news/article-22020.htm" title="宠物粮食加工厂设备哪的好点呢知乎 宠物粮食加工厂设备哪的好点呢知乎">宠物粮食加工厂设备哪的好点呢知乎 宠物粮食加工厂设备哪的好点呢知乎</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-trojan-windows.htm" title="12月11日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">12月11日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19268.htm" title="开一家宠物店的市场前景（开一家宠物店的市场前景如何）">开一家宠物店的市场前景（开一家宠物店的市场前景如何）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-subscribe-node.htm" title="10月1日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接">10月1日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-today-trojan-node.htm" title="10月17日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接">10月17日 | Free Trojan Node节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22471.htm" title="我们如何按降序对MySQL输出进行排序？">我们如何按降序对MySQL输出进行排序？</a></li>
+                        <li class="py-2"><a href="/news/article-44024.htm" title="南京领养宠物的平台电话是多少（南京宠物猫领养中心）">南京领养宠物的平台电话是多少（南京宠物猫领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-44500.htm" title="手机芯片排行榜最新2023(手机的处理器排名)">手机芯片排行榜最新2023(手机的处理器排名)</a></li>
+                        <li class="py-2"><a href="/news/article-22472.htm" title="python3 元组 tuple&#8211;讲义">python3 元组 tuple&#8211;讲义</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-node-subscribe-links.htm" title="11月6日 | Free Trojan Node节点订阅每天更新18.7M/S免费节点订阅链接">11月6日 | Free Trojan Node节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36089.htm" title="vue动态设置样式">vue动态设置样式</a></li>
+                        <li class="py-2"><a href="/news/article-25711.htm" title="南通宠物批发地点（南通宠物狗基地）">南通宠物批发地点（南通宠物狗基地）</a></li>
+                        <li class="py-2"><a href="/news/article-38057.htm" title="如何保证Redis缓存和数据库一致性？">如何保证Redis缓存和数据库一致性？</a></li>
+                        <li class="py-2"><a href="/news/article-34675.htm" title="小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）">小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）</a></li>
+                        <li class="py-2"><a href="/news/article-30866.htm" title="反射获取class对象和类实例">反射获取class对象和类实例</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-latest-trojan-node.htm" title="12月10日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">12月10日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -107,22 +135,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

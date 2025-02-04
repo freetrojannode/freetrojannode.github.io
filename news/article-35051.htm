@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freetrojannode.github.io/news/article-35051.htm" />
@@ -8,14 +8,42 @@
     <title>SDDC的Windows初体验-QT篇</title>
         <meta name="description" content="如果熟悉爱智和看过我之前文章的朋友见到这篇文章一定会有很大疑问，SDDC 作为智能设备发现控制协议，怎么会用在 windows 上？ 这一切还是源自于我巨大的脑洞，因为这段在搞 Windows 开发，" />
         <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-35051.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="SDDC的Windows初体验-QT篇" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/7a36a72082f763bffeec1188e16ff0ed.webp" />
+        <meta property="og:release_date" content="2025-01-03T00:20:42" />
+    <meta property="og:updated_time" content="2025-01-03T00:20:42" />
+        <meta property="og:description" content="如果熟悉爱智和看过我之前文章的朋友见到这篇文章一定会有很大疑问，SDDC 作为智能设备发现控制协议，怎么会用在 windows 上？ 这一切还是源自于我巨大的脑洞，因为这段在搞 Windows 开发，" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SDDC的Windows初体验-QT篇">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
     <!-- Vendor CSS Files -->
-    <link href="__ADDON__/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="__ADDON__/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -86,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-19-trojan-node-github.htm" title="12月19日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接">12月19日 | Free Trojan Node节点订阅每天更新18.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19268.htm" title="开一家宠物店的市场前景（开一家宠物店的市场前景如何）">开一家宠物店的市场前景（开一家宠物店的市场前景如何）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-14-node-share-links.htm" title="12月14日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">12月14日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-trojan-node.htm" title="11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接">11月10日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe.htm" title="11月2日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">11月2日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-high-speed-nodes.htm" title="11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">11月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-25711.htm" title="南通宠物批发地点（南通宠物狗基地）">南通宠物批发地点（南通宠物狗基地）</a></li>
-                        <li class="py-2"><a href="/news/article-36584.htm" title="猫三针多久打一次（猫三针要打多久）">猫三针多久打一次（猫三针要打多久）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-trojan-windows.htm" title="12月16日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接">12月16日 | Free Trojan Node节点订阅每天更新19.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-trojan-node.htm" title="12月4日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">12月4日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-trojan-node-github.htm" title="1月27日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接">1月27日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-node-share.htm" title="1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接">1月22日 | Free Trojan Node节点订阅每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-47949.htm" title="动物疫苗哪个好 动物疫苗品牌">动物疫苗哪个好 动物疫苗品牌</a></li>
+                        <li class="py-2"><a href="/news/article-35569.htm" title="动物疫苗公司排名前十名是什么（国内动物疫苗龙头企业）">动物疫苗公司排名前十名是什么（国内动物疫苗龙头企业）</a></li>
+                        <li class="py-2"><a href="/news/article-33240.htm" title="宠物领养合同怎么写 宠物领养合同怎么写范本">宠物领养合同怎么写 宠物领养合同怎么写范本</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-high-speed-nodes.htm" title="1月18日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接">1月18日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-today-trojan-node.htm" title="1月7日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接">1月7日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-49455.htm" title="上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）">上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-34675.htm" title="小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）">小孩被猫抓伤了多久过安全期（小孩被猫抓伤多久会发病）</a></li>
+                        <li class="py-2"><a href="/news/article-26637.htm" title="动物疫苗的管理方法不包括哪些（动物疫苗法规）">动物疫苗的管理方法不包括哪些（动物疫苗法规）</a></li>
                     </ul>
     </div>
 </div>
@@ -107,16 +135,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">17</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
