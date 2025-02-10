@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-53133.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>docker system全新命令集</title>
+        <meta name="description" content="docker system docker system --help 查看帮助 docker system df 提供Docker整体磁盘使用率的概况，包括镜像、容器和（本地）volume。所以我们现" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-53133.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="docker system全新命令集" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/7d71ecb6a778afd68a21f5c8a686c493.webp" />
+        <meta property="og:release_date" content="2025-02-08T04:40:45" />
+    <meta property="og:updated_time" content="2025-02-08T04:40:45" />
+        <meta property="og:description" content="docker system docker system --help 查看帮助 docker system df 提供Docker整体磁盘使用率的概况，包括镜像、容器和（本地）volume。所以我们现" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="docker system全新命令集">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>docker system全新命令集</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>docker system</strong></p> <p>docker system --help 查看帮助<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230203/2fca7e7e6c6fd77733788ab42c1f49a5.jpg" alt="docker system全新命令集"></p> <p><strong>docker system df</strong><br /> 提供Docker整体磁盘使用率的概况，包括镜像、容器和（本地）volume。所以我们现在随时都可以查看Docker使用了多少资源。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230203/487af90abebd909beed70d9829de5849.jpg" alt="docker system全新命令集"><br /> TYPE 类型<br /> TOTAL 总数<br /> ACTIVE 正在运行<br /> SIZE 暂用磁盘大小<br /> RECLAIMABLE 可回收的（未被使用的）</p> <p>查看容器使用卷的情况和大小</p> <pre><code>docker system df -v </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/7de7135ef11bad5b1db68629d945e735.jpg" alt="docker system全新命令集"></p> <p><strong>docker system info（就等同于 docker info）</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230203/b3606a17a83a5f38391093ce0851661b.jpg" alt="docker system全新命令集"></p> <p><strong>docker system events（就等同于docker events）</strong><br /> 获取docker系统实时事件，不包括容器内的</p> <p>截止（日期时间）之前的操作</p> <pre><code>docker system events --until 时间 </code></pre> <p>从（日期时间）之后的操作</p> <pre><code>docker system events --since 时间 </code></pre> <p><strong>docker system prune</strong><br /> 修剪一切<br /> docker system prune 命令是修剪镜像、容器和网络的快捷方式，在Docker 17.06.1之后要清理卷的话需要加上 --volumes</p> <pre><code>docker system prune --volumes		#使用-f 强制删除 </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/558f2875dbd47b14fcc51210d78afb2a.jpg" alt="docker system全新命令集"></p> <p>详细的解释<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230203/d540a781dc16a4a9276e68b0f255d75b.jpg" alt="docker system全新命令集"></p> <p>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/qq_36274515/article/details/87910694?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.opensearchhbase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.opensearchhbase"  rel="nofollow">docker-system-—— 一个全新的命令集合</a><br /> 单独删除某一个类型参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://editor.csdn.net/md/?articleId=127773048"  rel="nofollow">docker快速清理已停止的容器</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53132.htm">springboot中使用restemplate，请求接口会将url参数的%编码为%25问题解决</a></p>
+                                        <p>下一个：<a href="/news/article-53655.htm">安装Pytorch如何选择CUDA的版本</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-37076.htm" title="宠物粮食品牌名字4个字大全及图片视频 宠物粮食品牌名字4个字大全及图片视频教程">宠物粮食品牌名字4个字大全及图片视频 宠物粮食品牌名字4个字大全及图片视频教程</a></li>
+                        <li class="py-2"><a href="/news/article-42022.htm" title="Ribbon、Hystrix超时问题">Ribbon、Hystrix超时问题</a></li>
+                        <li class="py-2"><a href="/news/article-26637.htm" title="动物疫苗的管理方法不包括哪些（动物疫苗法规）">动物疫苗的管理方法不包括哪些（动物疫苗法规）</a></li>
+                        <li class="py-2"><a href="/news/article-53133.htm" title="docker system全新命令集">docker system全新命令集</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-trojan-windows.htm" title="11月12日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接">11月12日 | Free Trojan Node节点订阅每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21100.htm" title="大兴宠爱伴侣动物医院（大兴宠物医院电话号码）">大兴宠爱伴侣动物医院（大兴宠物医院电话号码）</a></li>
+                        <li class="py-2"><a href="/news/article-49973.htm" title="宠物零食制作教程 宠物零食制作教程风干">宠物零食制作教程 宠物零食制作教程风干</a></li>
+                        <li class="py-2"><a href="/news/article-43504.htm" title="Vue组件间传值的方式">Vue组件间传值的方式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-high-speed-nodes.htm" title="12月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">12月27日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-18849.htm" title="内江宠物医院24小时（内江宠物医院电话）">内江宠物医院24小时（内江宠物医院电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
