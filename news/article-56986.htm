@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-56986.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>记一次RabbitMQ连接阻塞，全部队列不消费异常</title>
+        <meta name="description" content="前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。 推测一" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-56986.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="记一次RabbitMQ连接阻塞，全部队列不消费异常" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/032b9b10ab2ec66d1a186cbd72d01aa4.webp" />
+        <meta property="og:release_date" content="2025-02-15T05:22:33" />
+    <meta property="og:updated_time" content="2025-02-15T05:22:33" />
+        <meta property="og:description" content="前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。 推测一" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="记一次RabbitMQ连接阻塞，全部队列不消费异常">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>记一次RabbitMQ连接阻塞，全部队列不消费异常</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size: 1em;">前几天博主遇到一个很狗屎的bug，RabbitMQ本来运行的好好突然所有的消息队列都不消费了，看了一下 Connections连接，发现全部都发生阻塞了，导致线上的队列堆积如山，情况万分危急。</span></p> <h3 id="推测一生产者和消费者问题">推测一：生产者和消费者问题</h3> <p>刚开始推测是不是生产者和消费者出问题了，然后就检查了一下服务的运行状态，发现都没问题，说明不是这个问题引起的，所以进一步猜测可能是MQ本身出现问题了。</p> <h3 id="推测二mq本身出现问题">推测二：MQ本身出现问题</h3> <p>如果是MQ出现问题，那MQ的日志肯定会有错误的相关信息记载，所以我们进入MQ日志下面，查看日志情况。</p> <pre class="has"><code>/var /log/rabbitmq/</code></pre> <p><strong>日志结果如下所示：</strong></p> <pre class="has"><code>=ERROR REPORT==== 30-May-2019::19:28:49 === connection &lt;0.23331.7132&gt;, channel 4 - soft error: {amqp_error,precondition_failed,"unknown delivery tag 1",'basic.ack'}  =INFO REPORT==== 30-May-2019::19:28:49 === vm_memory_high_watermark clear. Memory used:383597048 allowed:385616281  =WARNING REPORT==== 30-May-2019::19:28:49 === memory resource limit alarm cleared on node rabbit@VM_2_12_centos</code></pre> <p>通过错误日志我们可以很明显的看出，是MQ的运行内存超过限制，导致连接阻塞的。</p> <h3 id="问题原因">问题原因：</h3> <p>因为RabbitMQ服务器在启动时会计算系统内存总大小。然后会根据vm_memory_high_watermark参数指定的百分比，进行控制.可通过命令 rabbitmqctl set_vm_memory_high_watermark fraction 动态设置。默认下，vm_memory_high_watermark的值为0.4,当RabbitMQ使用的内存超过40%时，系统会阻塞所有连接。一旦警报解除（消息被消费者取走，或者消息被写到硬盘中）,系统重新恢复工作。32位系统的单进程内存使用最大为2G,即使系统有10G,那么内存警报线为2G*40%.</p> <h3 id="解决方案">解决方案：</h3> <p>最快的解决方案时将<strong>vm_memory_high_watermark</strong>值上调，如果短时间内上调不了，可以选择直接升级服务器内存。</p> <p>但是这样治标不治本，如果队列继续堆积，内存占用率还是会变大，最终的解决方案，应该要<strong>平衡消费者和生产者</strong>，让消息队列尽量不要堆积导致内存过大阻塞。</p> <h3 id="其它阻塞的场景">其它阻塞的场景：</h3> <p><strong>硬盘控制</strong></p> <p>当RabbitMQ的磁盘空闲空间小于50M（默认），生产者将被BLOCK，并且阻塞信息发布前，会尝试把内存中的信息输出到磁盘上。持久化信息和非持久化信息都将被写到磁盘（持 久化信息一进入队列就会被写到磁盘）。如果采用集群模式，磁盘节点空闲空间小于50M将导致其他节点的生产者都被block。可以通过disk_free_limit来对进行配置。 如果磁盘的预设值为50%，内存预设值默认是0.4，那么就是当内存使用量达到20%时，队列信息会被写到磁盘上。 可以通过设置 vm_memory_high_watermark_paging_ratio （默认值为0.5）来改变写入磁盘的策略，例如：</p> <pre class="has"><code>[{rabbit, [{vm_memory_high_watermark_paging_ratio, 0.75},          {vm_memory_high_watermark, 0.4}]}].1</code></pre> <p>上面的配置将会在内存全用30%时将队列信息写入到磁盘，阻塞信息发布是在内存使用40%时发生。建议vm_memory_high_watermark 不超过50%.</p> <p><strong>消息积压</strong></p> <p>在RabbitMQ中，消息可能被存储在多个不同的队列，消息越早被消费，那么消息经过的队列层次越少，则平均每个消息处理的开销就越小。但若发布消息的速率过快，MQ来不及处理，这些消息就可能进入很深层次的队列，大大增加平均每个消息的处理开销，进一步使得处理新消息和发送旧消息的能力减弱，更多的消息会进入很深的队列，循环往复，整个系统的性能就会极大的降低。另外若接收消息的速率过快还会实现某些进程的mailbox过大，可能会产生很严重的后果。为此，RabbitMQ设计了一套流控机制。</p> <p>RabbitMQ 使用了一种基于 credit 的算法来 限制 message 被 publish 的速率 。Publisher 只有在其从某个 queue 的 全部镜像处收到 credit 之后才被允许继续 publish 。在这个上下文中，Credit 意味着对 publish 行为的允许。如果存在没能成功发送出 credit 的 slaves ，则将导致 publisher 停止 publish 动作。Publisher 会一直保持停止的状态，直到所有 slave 都成功发送了 credit 或者直到剩余的 node 都认为某 slave 已经从 cluster 中断开了。Erlang 会周期性地发送 tick 到所有的 node 上来检测是否出现连接断开。 tick 的间隔时间可以通过配置 net_ticktime 的值来控制。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56411.htm">小动物打针动画（给动物打针的动画片）</a></p>
+                                        <p>下一个：<a href="/news/article-56987.htm">宠物领养网站app名字 宠物领养网站app名字大全</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-latest-trojan-node.htm" title="12月10日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">12月10日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21554.htm" title="在Java的数字字面量中使用下划线">在Java的数字字面量中使用下划线</a></li>
+                        <li class="py-2"><a href="/news/article-49455.htm" title="上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）">上海宠物领养平台可靠吗安全吗知乎推荐（上海宠物领养中心免费领养狗狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share.htm" title="1月21日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">1月21日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40534.htm" title="上海免费领养猫上海宠物领（上海有没有免费领养宠物的）">上海免费领养猫上海宠物领（上海有没有免费领养宠物的）</a></li>
+                        <li class="py-2"><a href="/news/article-45487.htm" title="动物疫苗价格表图片高清大全集 动物疫苗价格表图片高清大全集下载">动物疫苗价格表图片高清大全集 动物疫苗价格表图片高清大全集下载</a></li>
+                        <li class="py-2"><a href="/news/article-27102.htm" title="我们如何将值添加到MySQL表的列中？">我们如何将值添加到MySQL表的列中？</a></li>
+                        <li class="py-2"><a href="/news/article-44499.htm" title="显卡1060哪个牌子性价比高(显卡排行榜1060)">显卡1060哪个牌子性价比高(显卡排行榜1060)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-trojan-node.htm" title="1月28日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">1月28日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-trojan-node-github.htm" title="12月15日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接">12月15日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
