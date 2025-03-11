@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-70306.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>【QT实现UDP收发数据】</title>
+        <meta name="description" content="使用QT实现UDP发送和接收数据  QT实现UDP流程   代码实现      Internet 协议集支持一个无连接的传输协议，该协议称为用户数据包协议（UDP，User Datagram Prot" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-70306.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="【QT实现UDP收发数据】" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/c54aabf7432a97b30835e41663f1b24a.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:46:11" />
+    <meta property="og:updated_time" content="2025-03-09T09:46:11" />
+        <meta property="og:description" content="使用QT实现UDP发送和接收数据  QT实现UDP流程   代码实现      Internet 协议集支持一个无连接的传输协议，该协议称为用户数据包协议（UDP，User Datagram Prot" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【QT实现UDP收发数据】">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>【QT实现UDP收发数据】</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>使用QT实现UDP发送和接收数据</h3> <ul> <li><a href="#QTUDP_2" rel="nofollow">QT实现UDP流程</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">代码实现</a></li> </ul> </li> </ul> </div> </h1> <p>Internet 协议集支持一个无连接的传输协议，该协议称为用户数据包协议（UDP，User Datagram Protocol）。UDP 为应用程序提供了一种无需建立连接就可以发送封装的 IP 数据包的方法。</p> <h2> <a id="_5" rel="nofollow"></a>代码实现</h2> <p>1.在.pro文件中添加网络模块</p> <pre><code class="prism language-cpp">Qt <span class="token operator">+=</span> network </code></pre> <p>2.接收端</p> <pre><code class="prism language-cpp"><span class="token comment">//头文件</span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QtNetwork&gt;</span>  </span>     <span class="token comment">//声明接收套接字，头文件</span>     QUdpSocket <span class="token operator">*</span>receiver<span class="token punctuation">;</span>       <span class="token comment">//声明槽函数用于接收并处理数据,头文件</span> <span class="token keyword">public</span> slots<span class="token operator">:</span><span class="token comment">//就字面意思:公开槽</span>     <span class="token keyword">void</span> <span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//监听接收端口，源文件构造函数中</span>     <span class="token punctuation">{<!-- --></span>         <span class="token comment">//创建UDP套接字对象用于接收数据</span>         receiver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QUdpSocket</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//绑定端口，参数1:IP地址（本地），参数2:端口号，参数3:绑定模式（这里是共享模式，DontShareAddress是独占端口模式）</span>         receiver<span class="token operator">-&gt;</span><span class="token function">bind</span><span class="token punctuation">(</span>QHostAddress<span class="token operator">::</span>AnyIPv4<span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">,</span> QUdpSocket<span class="token operator">::</span>ShareAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//连接槽函数，参数1:信号所在的对象，参数2:信号，参数3:槽函数所在的对象，参数4:槽函数</span>         <span class="token comment">//信号与槽连接后，触发信号会执行槽函数</span>         <span class="token function">connect</span><span class="token punctuation">(</span>receiver<span class="token punctuation">,</span><span class="token function">SIGNAL</span><span class="token punctuation">(</span><span class="token function">readyRead</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token function">SLOT</span><span class="token punctuation">(</span><span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token comment">//槽函数定义，源文件中</span> <span class="token keyword">void</span> <span class="token class-name">MainWindow</span><span class="token operator">::</span><span class="token function">Receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> <span class="token comment">//定义QByteArray类型变量</span>     QByteArray datagram<span class="token punctuation">;</span>     <span class="token comment">//设置data的大小为等待处理的数据报的大小，这样才能接收到完整的数据</span>     datagram<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>receiver<span class="token operator">-&gt;</span><span class="token function">pendingDatagramSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 接收数据报，将其存放到datagram中</span>     receiver<span class="token operator">-&gt;</span><span class="token function">readDatagram</span><span class="token punctuation">(</span>datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> datagram<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//处理接收数据</span>     QString str <span class="token operator">=</span> datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//此处data()函数返回char*类型，可以用QString类型接收结果</span>     <span class="token comment">//然后可以将QString显示出来，比如显示在QLabel、QLineEdit、QTextEdit或显示在程序输出里</span>     <span class="token function">qDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>str<span class="token punctuation">;</span><span class="token comment">//这里用qDebug()是显示在程序输出中，注意！！！使用前需要加头文件&lt;QDebug&gt;!!!</span> <span class="token punctuation">}</span>      <span class="token comment">//关闭接收套接字,源文件析构函数中</span>     receiver<span class="token operator">-&gt;</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>3.发送端</p> <pre><code class="prism language-cpp"><span class="token comment">//头文件</span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;QtNetwork&gt;</span></span>     <span class="token comment">//声明发送套接字，头文件</span>     QUdpSocket <span class="token operator">*</span>sender<span class="token punctuation">;</span>     <span class="token comment">//发送数据，源文件构造函数中</span>     <span class="token punctuation">{<!-- --></span>         <span class="token comment">//创建UDP套接字用于发送数据</span>         sender <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">QUdpSocket</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//设置要发送的字符串并转变类型</span>     QString str <span class="token operator">=</span> <span class="token string">"543se6w56"</span><span class="token punctuation">;</span>     QByteArray datagram <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">toLatin1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//QByteArray datagram = ui-&gt;lineEdit_send-&gt;text().toLatin1();//这里是从ui界面单行文本框中获取数据</span>     <span class="token comment">//发送数据，参数1:要发送的数据char*类型，参数2:撒送数据的大小，参数3:ip地址,参数4:端口号</span>     sender<span class="token operator">-&gt;</span><span class="token function">writeDatagram</span><span class="token punctuation">(</span>datagram<span class="token punctuation">.</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> datagram<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>                           <span class="token function">QHostAddress</span><span class="token punctuation">(</span><span class="token string">"192.168.10.93"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">8001</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token comment">//关闭发送套接字，源文件析构函数中</span>     sender<span class="token operator">-&gt;</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>发送端和接收端可以在一个项目中实现，也可以在两个项目中分别实现。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69670.htm">长沙宠物领养中心哪家好点 长沙宠物领养中心哪家好点呢</a></p>
+                                        <p>下一个：<a href="/news/article-70307.htm">开一家动物医院需要的专业技术人员至少为（开动物医院什么资质）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-node-share.htm" title="1月26日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接">1月26日 | Free Trojan Node节点订阅每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-51534.htm" title="动物医院仪器设备清单表格（动物医院实验室常见设备仪器）">动物医院仪器设备清单表格（动物医院实验室常见设备仪器）</a></li>
+                        <li class="py-2"><a href="/news/article-39528.htm" title="动物疫苗哪个好 动物疫苗品牌">动物疫苗哪个好 动物疫苗品牌</a></li>
+                        <li class="py-2"><a href="/news/article-59833.htm" title="南平宠物市场（南平宠物市场一般啥时候开）">南平宠物市场（南平宠物市场一般啥时候开）</a></li>
+                        <li class="py-2"><a href="/news/article-37558.htm" title="宠物买卖交易内容（宠物买卖交易内容怎么写）">宠物买卖交易内容（宠物买卖交易内容怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-67725.htm" title="Java子串比较">Java子串比较</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-today-trojan-node.htm" title="1月7日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接">1月7日 | Free Trojan Node节点订阅每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-today-trojan-node.htm" title="1月15日 | Free Trojan Node节点订阅每天更新22.6M/S免费节点订阅链接">1月15日 | Free Trojan Node节点订阅每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-61591.htm" title="Java8 新特性 &#8211; Instant 时间戳类">Java8 新特性 &#8211; Instant 时间戳类</a></li>
+                        <li class="py-2"><a href="/news/article-40047.htm" title="vue实现用v-bind给src和href赋值_vue.js">vue实现用v-bind给src和href赋值_vue.js</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
