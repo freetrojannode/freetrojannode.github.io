@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-81147.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>SpringBoot 字节数组自动转化为Base64格式的问题</title>
+        <meta name="description" content="问题描述 Spring Boot微服务架构，两个服务间请求数据，发现byte数组格式的字段会自动转化为Base64格式 问题研究 经过研究发现，这个是因为RestTemplate在发起exchange" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-81147.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="SpringBoot 字节数组自动转化为Base64格式的问题" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/6cad98efecc6c8c93de6c9d515203179.webp" />
+        <meta property="og:release_date" content="2025-03-25T08:18:59" />
+    <meta property="og:updated_time" content="2025-03-25T08:18:59" />
+        <meta property="og:description" content="问题描述 Spring Boot微服务架构，两个服务间请求数据，发现byte数组格式的字段会自动转化为Base64格式 问题研究 经过研究发现，这个是因为RestTemplate在发起exchange" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot 字节数组自动转化为Base64格式的问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>SpringBoot 字节数组自动转化为Base64格式的问题</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2><a id="_2" rel="nofollow"></a>问题描述</h2> <p>Spring Boot微服务架构，两个服务间请求数据，发现byte数组格式的字段会自动转化为Base64格式</p> <h2><a id="_4" rel="nofollow"></a>问题研究</h2> <p>经过研究发现，这个是因为RestTemplate在发起exchange的调用时候，会把字段类型为字节数组转化为Base64格式，然后再发起请求到目标服务。<br /> 代码位置：com.fasterxml.jackson.databind.ser.std.ByteArraySerializer这个类的serialize方法</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">void</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> value<span class="token punctuation">,</span><span class="token class-name">JsonGenerator</span> g<span class="token punctuation">,</span><span class="token class-name">SerializerProvider</span> provider<span class="token punctuation">)</span><span class="token keyword">throws</span><span class="token class-name">IOException</span><span class="token punctuation">{<!-- --></span>         g<span class="token punctuation">.</span><span class="token function">writeBinary</span><span class="token punctuation">(</span>provider<span class="token punctuation">.</span><span class="token function">getConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBase64Variant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> value<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> value<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>依赖关系为：spring-boot-starter-web-&gt;spring-boot-starter-json-&gt;com.fasterxml.jackson.core-&gt;jackson-databind</p> <h2><a id="_14" rel="nofollow"></a>结论</h2> <p>RestTemplate的exchange调用会把Request参数里面的字节数组转为Base64格式，这样做的原因可能有很多，我觉得有一点这样做的好处是可以节省空间，请参考如下<br /> https://stackoverflow.com/questions/67156878/why-does-jackson-convert-byte-array-to-base64-string-on-converting-to-json</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-80420.htm">SpringBoot入门教程：浅聊POJO简单对象(VO、DTO、Entity)</a></p>
+                                        <p>下一个：<a href="/news/article-81148.htm">Java-GUI 编程之 Swing_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77012.htm" title="宠物猫疫苗大概多少钱一只（宠物猫疫苗多少钱一支）">宠物猫疫苗大概多少钱一只（宠物猫疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/news/article-38057.htm" title="如何保证Redis缓存和数据库一致性？">如何保证Redis缓存和数据库一致性？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-trojan-node-share.htm" title="1月12日 | Free Trojan Node节点订阅每天更新22.1M/S免费节点订阅链接">1月12日 | Free Trojan Node节点订阅每天更新22.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50499.htm" title="动物疫苗多少钱一只啊图片视频（动物疫苗价格查询）">动物疫苗多少钱一只啊图片视频（动物疫苗价格查询）</a></li>
+                        <li class="py-2"><a href="/news/article-57554.htm" title="北京排名第一的宠物医院（北京最厉害的宠物医院）">北京排名第一的宠物医院（北京最厉害的宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-72298.htm" title="东北农大宠物医院官网招聘（东北农大兽医院）">东北农大宠物医院官网招聘（东北农大兽医院）</a></li>
+                        <li class="py-2"><a href="/news/article-71633.htm" title="动物疫苗需要每年都打吗 动物疫苗需要每年都打吗多少钱">动物疫苗需要每年都打吗 动物疫苗需要每年都打吗多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-49971.htm" title="宠物粮食品牌大全排行榜最新 宠物粮食品牌大全排行榜最新图片">宠物粮食品牌大全排行榜最新 宠物粮食品牌大全排行榜最新图片</a></li>
+                        <li class="py-2"><a href="/news/article-60402.htm" title="开个小型宠物食品加工厂怎么样（开宠物食品厂需要什么手续）">开个小型宠物食品加工厂怎么样（开宠物食品厂需要什么手续）</a></li>
+                        <li class="py-2"><a href="/news/article-40533.htm" title="Kafka的零拷贝原理解析">Kafka的零拷贝原理解析</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
