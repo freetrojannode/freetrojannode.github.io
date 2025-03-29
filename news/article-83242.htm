@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-83242.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>我们如何在MySQL SELECT查询中将组函数与非组字段一起使用？</title>
+        <meta name="description" content="如果要在SELECT查询中将组函数与非组字段一起使用，则必须使用GROUP BY子句。通用语法如下 语法 SELECT&nbsp;group_function1,…,&nbsp;non-group-c" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-83242.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="我们如何在MySQL SELECT查询中将组函数与非组字段一起使用？" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/3d8c95198afb4895b7da4de6a86d2209.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:54:49" />
+    <meta property="og:updated_time" content="2025-03-28T09:54:49" />
+        <meta property="og:description" content="如果要在SELECT查询中将组函数与非组字段一起使用，则必须使用GROUP BY子句。通用语法如下 语法 SELECT&nbsp;group_function1,…,&nbsp;non-group-c" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="我们如何在MySQL SELECT查询中将组函数与非组字段一起使用？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>我们如何在MySQL SELECT查询中将组函数与非组字段一起使用？</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<p>如果要在SELECT查询中将组函数与非组字段一起使用，则必须使用GROUP BY子句。通用语法如下</p> <h2>语法</h2> <pre>SELECT&nbsp;group_function1,…,&nbsp;non-group-column1,…&nbsp;from&nbsp;table_name&nbsp;GROUP&nbsp;BY&nbsp;column_name;</pre> <h2>示例</h2> <pre>mysql&gt;&nbsp;Select&nbsp;COUNT(*),&nbsp;id&nbsp;from&nbsp;Student&nbsp;GROUP&nbsp;BY&nbsp;id; +----------+------+ |&nbsp;COUNT(*)&nbsp;|&nbsp;id&nbsp;&nbsp;&nbsp;| +----------+------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;15&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;17&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;20&nbsp;&nbsp;&nbsp;| +----------+------+ 5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;COUNT(*),&nbsp;address&nbsp;from&nbsp;Student&nbsp;GROUP&nbsp;BY&nbsp;id; +----------+---------+ |&nbsp;COUNT(*)&nbsp;|&nbsp;address&nbsp;| +----------+---------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Shimla&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;| +----------+---------+ 5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>GROUP BY子句之后的字段可以与SELECT查询中给定的非组字段不同。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82512.htm">品牌权威性 企业为什么要建立品牌定位(品牌权威性 企业为什么要建立品牌文化)</a></p>
+                                        <p>下一个：<a href="/news/article-83243.htm">芭比堂宠物医院收费价目表沈阳（芭比堂宠物医院玉泉路总店）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-trojan-github.htm" title="1月24日 | Free Trojan Node节点订阅每天更新19.8M/S免费节点订阅链接">1月24日 | Free Trojan Node节点订阅每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-trojan-windows.htm" title="1月23日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接">1月23日 | Free Trojan Node节点订阅每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72297.htm" title="宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的">宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的</a></li>
+                        <li class="py-2"><a href="/news/article-40533.htm" title="Kafka的零拷贝原理解析">Kafka的零拷贝原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-46473.htm" title="Hbase架构与存储组件结构与功能">Hbase架构与存储组件结构与功能</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe-links.htm" title="3月11日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">3月11日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-81147.htm" title="SpringBoot 字节数组自动转化为Base64格式的问题">SpringBoot 字节数组自动转化为Base64格式的问题</a></li>
+                        <li class="py-2"><a href="/news/article-82511.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/news/article-49973.htm" title="宠物零食制作教程 宠物零食制作教程风干">宠物零食制作教程 宠物零食制作教程风干</a></li>
+                        <li class="py-2"><a href="/news/article-72964.htm" title="Spring boot整合JPA">Spring boot整合JPA</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
