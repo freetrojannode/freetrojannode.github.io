@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-86099.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>#include＜stack＞栈的基本操作</title>
+        <meta name="description" content="介绍  stack的定义 其定义的写法和其他STL容器相同, typename可以任意基本数据类型或容器： stack name; stack容器内元素的访问 由于栈(stack)本身就是一种后进先出" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-86099.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="#include＜stack＞栈的基本操作" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/f67bacbaa0cc5702d02aa1a7ced7d714.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:48:29" />
+    <meta property="og:updated_time" content="2025-04-01T09:48:29" />
+        <meta property="og:description" content="介绍  stack的定义 其定义的写法和其他STL容器相同, typename可以任意基本数据类型或容器： stack name; stack容器内元素的访问 由于栈(stack)本身就是一种后进先出" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="#include＜stack＞栈的基本操作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>#include＜stack＞栈的基本操作</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-kimbie-light"> <h2> <a id="_0" rel="nofollow"></a>介绍</h2> <ol> <li>stack的定义<br /> 其定义的写法和其他STL容器相同, typename可以任意基本数据类型或容器：<br /> stack name;</li> <li>stack容器内元素的访问<br /> 由于栈(stack)本身就是一种后进先出的数据结构，在STL的 stack中只能通过top()来访问栈顶元素。</li> </ol> <p><em>这里我就用int类型的名叫tx的栈</em></p> <pre><code class="prism language-c">stack<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span>tx<span class="token punctuation">;</span> </code></pre> <h2> <a id="_13" rel="nofollow"></a>相关函数及其用法</h2> <p>一.<br /><strong>empty():判断栈是否为空的函数，栈空<em>返回t</em>rue，反之<em>返回</em>false</strong><br /><strong>push(x)：x入栈函数</strong><br /><strong>size():<em>返回</em>栈内元素个数的函数</strong><br /><strong>pop()：栈顶出栈函数</strong><br /><strong>top()：<em>返回</em>栈顶元素函数</strong></p> <pre><code class="prism language-c"> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstdio&gt;</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream&gt;</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stack&gt;</span></span> using namespace std<span class="token punctuation">;</span> <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     stack<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span>tx<span class="token punctuation">;</span>     cout<span class="token operator">&lt;&lt;</span><span class="token string">"tx栈的空满性判断："</span><span class="token operator">&lt;&lt;</span>tx<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//为空返回true，非空返回false</span>     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         tx<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//元素入栈</span>     <span class="token punctuation">}</span>     cout<span class="token operator">&lt;&lt;</span><span class="token string">"tx栈的空满性判断："</span><span class="token operator">&lt;&lt;</span>tx<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>     cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈元素个数是："</span><span class="token operator">&lt;&lt;</span>tx<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//栈元素个数</span>     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         tx<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//栈顶元素元素出栈</span>     <span class="token punctuation">}</span>     cout<span class="token operator">&lt;&lt;</span><span class="token string">"栈顶元素:"</span><span class="token operator">&lt;&lt;</span>tx<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//得到栈顶元素并打印</span>     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>   </code></pre> <p><em>运行结果</em></p> <pre><code class="prism language-cpp">tx栈的空满性判断：<span class="token number">1</span> tx栈的空满性判断：<span class="token number">0</span> 栈元素个数是：<span class="token number">4</span> 栈顶元素<span class="token operator">:</span><span class="token number">2</span> Program ended with exit code<span class="token operator">:</span> <span class="token number">0</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85379.htm">猫粮制作（猫粮制作工艺流程）</a></p>
+                                        <p>下一个：<a href="/news/article-86100.htm">专门卖宠物的app网名大全（卖宠物网有哪些）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-72297.htm" title="宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的">宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的</a></li>
+                        <li class="py-2"><a href="/news/article-83934.htm" title="win11系统如何修改日期格式">win11系统如何修改日期格式</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-today-trojan-node.htm" title="3月16日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接">3月16日 | Free Trojan Node节点订阅每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-node-subscribe-links.htm" title="3月30日 | Free Trojan Node节点订阅每天更新22M/S免费节点订阅链接">3月30日 | Free Trojan Node节点订阅每天更新22M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-86802.htm" title="动物医院诊室如何管理 动物医院诊室如何管理好">动物医院诊室如何管理 动物医院诊室如何管理好</a></li>
+                        <li class="py-2"><a href="/news/article-72964.htm" title="Spring boot整合JPA">Spring boot整合JPA</a></li>
+                        <li class="py-2"><a href="/news/article-68365.htm" title="兽用疫苗怎样查真伪（兽用疫苗查询）">兽用疫苗怎样查真伪（兽用疫苗查询）</a></li>
+                        <li class="py-2"><a href="/news/article-79743.htm" title="动物疫苗类型有哪几种（动物疫苗种类及类型）">动物疫苗类型有哪几种（动物疫苗种类及类型）</a></li>
+                        <li class="py-2"><a href="/news/article-79047.htm" title="天津宠物领养中心有哪些地方 天津宠物领养中心有哪些地方好">天津宠物领养中心有哪些地方 天津宠物领养中心有哪些地方好</a></li>
+                        <li class="py-2"><a href="/news/article-74965.htm" title="定时器中 this 指向修改实现方法和原理讲解">定时器中 this 指向修改实现方法和原理讲解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
