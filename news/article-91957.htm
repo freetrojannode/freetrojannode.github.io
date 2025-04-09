@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-91957.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>【PyTorch】Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same</title>
+        <meta name="description" content="和网上找到的答案都不一样。 问题是因为我在__init__外面的函数中定义了一个卷积操作  然后就一直报错。 具体原因之后再查吧。" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-91957.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="【PyTorch】Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/5dfd63e4b7405620bb61312a0619d2ef.webp" />
+        <meta property="og:release_date" content="2025-04-09T09:17:16" />
+    <meta property="og:updated_time" content="2025-04-09T09:17:16" />
+        <meta property="og:description" content="和网上找到的答案都不一样。 问题是因为我在__init__外面的函数中定义了一个卷积操作  然后就一直报错。 具体原因之后再查吧。" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【PyTorch】Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>【PyTorch】Input type (torch.cuda.FloatTensor) and weight type (torch.FloatTensor) should be the same</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>和网上找到的答案都不一样。</p> <p>问题是因为我在__init__外面的函数中定义了一个卷积操作</p> <p><img fetchpriority="high" decoding="async" alt="" class="has" height="235" src="http://img.555519.xyz/uploads/20221225/7f2b01783ca8d122958c191c4dc09377.jpg"></p> <p>然后就一直报错。</p> <p>具体原因之后再查吧。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90881.htm">动物防疫站营业时间是几点 动物防疫站营业时间是几点到几点</a></p>
+                                        <p>下一个：<a href="/news/article-91959.htm">自己给宠物打疫苗需要注意什么（自己给宠物打疫苗需要注意什么事项）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67729.htm" title="EFCore 6.0入门看这篇就够了">EFCore 6.0入门看这篇就够了</a></li>
+                        <li class="py-2"><a href="/news/article-72964.htm" title="Spring boot整合JPA">Spring boot整合JPA</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-trojan-windows.htm" title="3月7日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接">3月7日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77013.htm" title="长春宠物医院收费价目表图片高清（长春宠物医院24小时营业）">长春宠物医院收费价目表图片高清（长春宠物医院24小时营业）</a></li>
+                        <li class="py-2"><a href="/news/article-65846.htm" title="卡式空调好吗(卡式空调品牌排行榜前十名)">卡式空调好吗(卡式空调品牌排行榜前十名)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-latest-trojan-node.htm" title="3月12日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接">3月12日 | Free Trojan Node节点订阅每天更新19.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72965.htm" title="宠物粮批发市场在哪个位置最好（宠物粮批发市场在哪个位置最好呢）">宠物粮批发市场在哪个位置最好（宠物粮批发市场在哪个位置最好呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-trojan-node.htm" title="4月5日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接">4月5日 | Free Trojan Node节点订阅每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-67087.htm" title="和田宠物医院污水处理价格 和田宠物医院污水处理价格表">和田宠物医院污水处理价格 和田宠物医院污水处理价格表</a></li>
+                        <li class="py-2"><a href="/news/article-75638.htm" title="宠物用品批发进货渠道电商（宠物用品批发进货网站）">宠物用品批发进货渠道电商（宠物用品批发进货网站）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
