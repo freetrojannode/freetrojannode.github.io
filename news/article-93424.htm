@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-93424.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>修改 Docker 的默认存储路径</title>
+        <meta name="description" content="Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-93424.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="修改 Docker 的默认存储路径" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/c54aabf7432a97b30835e41663f1b24a.webp" />
+        <meta property="og:release_date" content="2025-04-11T08:57:30" />
+    <meta property="og:updated_time" content="2025-04-11T08:57:30" />
+        <meta property="og:description" content="Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="修改 Docker 的默认存储路径">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>修改 Docker 的默认存储路径</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>Docker 默认安装的情况下，会使用 /var/lib/docker/ 目录作为存储目录，用以存放拉取的镜像和创建的容器等。不过由于此目录一般都位于系统盘，遇到系统盘比较小，而镜像和容器多了后就容易尴尬，这里说明一下如何修改 Docker 的存储目录。</p> <p>以我手头的一台 VPS 作为例子，可以看到这台机子本身有两块硬盘，我把数据盘 vdb 挂载到了/www 目录，目标就是将 Docker 存储目录移到/www/docker。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/2a1f7d642c63e1c69f8d7b420d02a772.jpg"></p> <p>输入：</p> <pre><code>docker info</code></pre> <p>可以查看程序信息，红框里就是默认的存储目录：</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/4203eabbb88ae9931fe644483001a88c.jpg"></p> <p>最简单粗暴的办法，当然就是直接把数据盘挂载到/var/lib/docker 目录下，不过这样对整体影响太大，其他程序需要使用数据盘时很不方便，所以还是从 Docker 端的修改入手。</p> <p>官方文档的修改办法是编辑 /etc/docker/daemon.json 文件：</p> <pre><code>vi /etc/docker/daemon.json</code></pre> <p>默认情况下这个配置文件是没有的，这里实际也就是新建一个，然后写入以下内容：</p> <pre><code>{   "data-root": "/www/docker" }</code></pre> <p>此文件还涉及默认源的设定，如果设定了国内源，那么实际就是在源地址下方加一行，写成：</p> <pre><code>{   "registry-mirrors": ["http://hub-mirror.c.163.com"],   "data-root": "/www/docker" }</code></pre> <p>保存退出，然后重启 docker 服务：</p> <pre><code>systemctl restart docker</code></pre> <p>再次查看 docker 信息，可以看到目录已经变成了设定的/www/docker:</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220604/454448dfe8bd88e8b59bcf198f83b342.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-92673.htm">宠物美容师去哪里学（专业找狗团队大概多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-93425.htm">动物疫苗的发展现状论文题目（动物疫苗的发展现状论文题目大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77012.htm" title="宠物猫疫苗大概多少钱一只（宠物猫疫苗多少钱一支）">宠物猫疫苗大概多少钱一只（宠物猫疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-subscribe-node.htm" title="3月22日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接">3月22日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-latest-trojan-node.htm" title="3月26日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接">3月26日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-trojan-node.htm" title="4月7日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接">4月7日 | Free Trojan Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77687.htm" title="宠物品牌名称大全（好听的宠物品牌名字）">宠物品牌名称大全（好听的宠物品牌名字）</a></li>
+                        <li class="py-2"><a href="/news/article-75638.htm" title="宠物用品批发进货渠道电商（宠物用品批发进货网站）">宠物用品批发进货渠道电商（宠物用品批发进货网站）</a></li>
+                        <li class="py-2"><a href="/news/article-86100.htm" title="专门卖宠物的app网名大全（卖宠物网有哪些）">专门卖宠物的app网名大全（卖宠物网有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-78373.htm" title="Java中序列化，有一部分字段不想进行序列化">Java中序列化，有一部分字段不想进行序列化</a></li>
+                        <li class="py-2"><a href="/news/article-70307.htm" title="开一家动物医院需要的专业技术人员至少为（开动物医院什么资质）">开一家动物医院需要的专业技术人员至少为（开动物医院什么资质）</a></li>
+                        <li class="py-2"><a href="/news/article-93970.htm" title="养猫最忌讳的一个生肖哪些不能养狗呢（养猫最忌讳属相）">养猫最忌讳的一个生肖哪些不能养狗呢（养猫最忌讳属相）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
