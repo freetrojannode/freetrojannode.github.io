@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freetrojannode.github.io/news/article-98582.htm" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>双向带头循环链表（详解）</title>
+        <meta name="description" content="双向链表的定义 双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。 下图为双" />
+        <link rel="icon" href="/assets/website/img/freetrojannode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="FreeTrojanNode免费节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freetrojannode.github.io/news/article-98582.htm" />
+    <meta property="og:site_name" content="FreeTrojanNode免费节点官网" />
+    <meta property="og:title" content="双向带头循环链表（详解）" />
+    <meta property="og:image" content="https://freetrojannode.github.io/uploads/20240807-1/5dfd63e4b7405620bb61312a0619d2ef.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:39:46" />
+    <meta property="og:updated_time" content="2025-04-18T09:39:46" />
+        <meta property="og:description" content="双向链表的定义 双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。 下图为双" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="双向带头循环链表（详解）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="/assets/website/js/frontend/freetrojannode/aos/aos.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/assets/website/css/freetrojannode/style.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-41Z5LWRP31"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-41Z5LWRP31');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">
+                                <span>Free Trojan Node</span>
+                                </a>
+            </div>
+            <nav id="navbar" class="navbar">
+                <ul>
+                                        <li><a class="nav-link" href="/">首页</a></li>
+                                        <li><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                        <li><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                        <li><a class="nav-link" href="/client.htm">客户端</a></li>
+                                        <li><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                    </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+        </div>
+    </header><!-- #header -->
+    <main id="main">
+        <!-- ======= Breadcrumbs Section ======= -->
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1>双向带头循环链表（详解）</h1>
+                    <ol>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ol>
+                </div>
+            </div>
+        </section><!-- End Breadcrumbs Section -->
+        <!-- ======= About Section ======= -->
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="TrojanNode免费节点官网" data-url="https://trojannode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2> <a id="_0" rel="nofollow"></a>双向链表的定义</h2> <p><strong>双向链表也叫双链表，是链表的一种，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。<br /> 下图为双向链表的带头结构图。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230119/0cf634052a29984c6f76a91c862d44dc.jpg" alt="双向带头循环链表（详解）"><br /><strong>下图为双向链表不带头结构图</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230119/ec226088753b3a4bf9fae5bd89a1351c.jpg" alt="双向带头循环链表（详解）"></p> <p>这里我们在定义双向链表的时候，一个结点里面的next存储的下一个结点的地址，prev存储的是上一个结点的地址，这里我们就会将其链接起来。</p> <h2> <a id="_9" rel="nofollow"></a>头文件</h2> <pre><code class="prism language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">pragma</span> <span class="token expression">once</span></span>  <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdio.h&gt;</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;string.h&gt;</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;assert.h&gt;</span></span> <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;stdlib.h&gt;</span></span>   <span class="token keyword">typedef</span> <span class="token keyword">int</span>  LTDateType<span class="token punctuation">;</span>  <span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">ListNode</span> <span class="token punctuation">{<!-- --></span> 	LTDateType data<span class="token punctuation">;</span> 	<span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> next<span class="token punctuation">;</span> 	<span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> prev<span class="token punctuation">;</span> <span class="token punctuation">}</span>LTNode<span class="token punctuation">;</span>   <span class="token comment">//初始化</span> LTNode<span class="token operator">*</span> <span class="token function">ListInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//申请新的结点</span> LTNode<span class="token operator">*</span> <span class="token function">BuyListNode</span><span class="token punctuation">(</span>LTDateType x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//尾插</span> <span class="token keyword">void</span> <span class="token function">ListPushBack</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//尾删</span> <span class="token keyword">void</span> <span class="token function">ListPopBack</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//头插</span> <span class="token keyword">void</span> <span class="token function">ListPushFront</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//头删</span> <span class="token keyword">void</span> <span class="token function">ListPopFront</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//打印</span> <span class="token keyword">void</span> <span class="token function">ListPrint</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//查找</span> LTNode<span class="token operator">*</span> <span class="token function">ListFind</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//在pos位置之前进行插入</span> <span class="token keyword">void</span> <span class="token function">ListInsert</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> pos<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//删除pos位置的结点</span> <span class="token keyword">void</span> <span class="token function">ListErase</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> pos<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <h2> <a id="_49" rel="nofollow"></a>接口的实现</h2> <h3> <a id="1_50" rel="nofollow"></a>1、新节点的申请以及初始化链表</h3> <pre><code class="prism language-c"><span class="token comment">//申请新的结点</span> LTNode<span class="token operator">*</span> <span class="token function">BuyListNode</span><span class="token punctuation">(</span>LTDateType x<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	LTNode<span class="token operator">*</span> newnode <span class="token operator">=</span> <span class="token punctuation">(</span>LTNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>data <span class="token operator">=</span> x<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> 	<span class="token keyword">return</span> newnode<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment">//初始化</span> LTNode<span class="token operator">*</span> <span class="token function">ListInit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token comment">//哨兵位的头节点</span> 	LTNode<span class="token operator">*</span> phead <span class="token operator">=</span> <span class="token punctuation">(</span>LTNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LTNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>next <span class="token operator">=</span> phead<span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> phead<span class="token punctuation">;</span> 	<span class="token keyword">return</span> phead<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h3> <a id="2_71" rel="nofollow"></a>2、链表的头插尾插</h3> <pre><code class="prism language-c"><span class="token comment">//头插</span> <span class="token keyword">void</span> <span class="token function">ListPushFront</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> newnode <span class="token operator">=</span> <span class="token function">BuyListNode</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> next <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>next <span class="token operator">=</span> newnode<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> phead<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span> 	next<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> newnode<span class="token punctuation">;</span>  	<span class="token comment">//调用ListInsert也可以实现头插</span> 	<span class="token comment">//ListInsert(phead-&gt;next, x);</span>  <span class="token punctuation">}</span> <span class="token comment">//尾插</span> <span class="token keyword">void</span> <span class="token function">ListPushBack</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span>  	LTNode<span class="token operator">*</span> tail <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> newnode <span class="token operator">=</span> <span class="token function">BuyListNode</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 	tail<span class="token operator">-&gt;</span>next <span class="token operator">=</span> newnode<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> tail<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>next <span class="token operator">=</span> phead<span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> newnode<span class="token punctuation">;</span>  	<span class="token comment">//调用ListInsert也可以实现尾插</span> 	<span class="token comment">//ListInsert(phead, x);</span> <span class="token punctuation">}</span> </code></pre> <h3> <a id="3_104" rel="nofollow"></a>3、链表的头删尾删</h3> <pre><code class="prism language-c"><span class="token comment">//头删</span> <span class="token keyword">void</span> <span class="token function">ListPopFront</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token operator">-&gt;</span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> next <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> next2 <span class="token operator">=</span> next<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>next <span class="token operator">=</span> next2<span class="token punctuation">;</span> 	next2<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> phead<span class="token punctuation">;</span> 	<span class="token function">free</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token comment">//尾删</span> <span class="token keyword">void</span> <span class="token function">ListPopBack</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token operator">-&gt;</span>next <span class="token operator">!=</span> phead<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">//找到尾</span> 	LTNode<span class="token operator">*</span> tail <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span> 	phead<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> tail<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span> 	tail<span class="token operator">-&gt;</span>prev<span class="token operator">-&gt;</span>next <span class="token operator">=</span> phead<span class="token punctuation">;</span>  	<span class="token function">free</span><span class="token punctuation">(</span>tail<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h3> <a id="3_132" rel="nofollow"></a>3、链表的查找</h3> <pre><code class="prism language-c"><span class="token comment">//查找</span> LTNode<span class="token operator">*</span> <span class="token function">ListFind</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span>  	LTNode<span class="token operator">*</span> cur <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> phead<span class="token punctuation">)</span> 	<span class="token punctuation">{<!-- --></span> 		<span class="token keyword">if</span> <span class="token punctuation">(</span>cur<span class="token operator">-&gt;</span>data <span class="token operator">==</span> x<span class="token punctuation">)</span> 		<span class="token punctuation">{<!-- --></span> 			<span class="token keyword">return</span> cur<span class="token punctuation">;</span> 		<span class="token punctuation">}</span> 		cur <span class="token operator">=</span> cur<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> 	<span class="token keyword">return</span> <span class="token constant">NULL</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h3> <a id="4pospos_151" rel="nofollow"></a>4、在pos位置之前进行插入以及删除pos位置的结点</h3> <pre><code class="prism language-c"><span class="token comment">//在pos位置之前进行插入</span> <span class="token keyword">void</span> <span class="token function">ListInsert</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> pos<span class="token punctuation">,</span> LTDateType x<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> newnode <span class="token operator">=</span> <span class="token function">BuyListNode</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> posprev <span class="token operator">=</span> pos<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span> 	posprev<span class="token operator">-&gt;</span>next <span class="token operator">=</span> newnode<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> posprev<span class="token punctuation">;</span> 	newnode<span class="token operator">-&gt;</span>next <span class="token operator">=</span> pos<span class="token punctuation">;</span> 	pos<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> newnode<span class="token punctuation">;</span>  <span class="token punctuation">}</span> <span class="token comment">//删除pos位置的结点</span> <span class="token keyword">void</span> <span class="token function">ListErase</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> pos<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>pos<span class="token punctuation">)</span><span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> posnext <span class="token operator">=</span> pos<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	LTNode<span class="token operator">*</span> posprev <span class="token operator">=</span> pos<span class="token operator">-&gt;</span>prev<span class="token punctuation">;</span> 	posnext<span class="token operator">-&gt;</span>prev <span class="token operator">=</span> posprev<span class="token punctuation">;</span> 	posprev<span class="token operator">-&gt;</span>next <span class="token operator">=</span> posnext<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h3> <a id="5_175" rel="nofollow"></a>5、链表的打印</h3> <pre><code class="prism language-c"><span class="token comment">//打印</span> <span class="token keyword">void</span> <span class="token function">ListPrint</span><span class="token punctuation">(</span>LTNode<span class="token operator">*</span> phead<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token function">assert</span><span class="token punctuation">(</span>phead<span class="token punctuation">)</span><span class="token punctuation">;</span>  	LTNode<span class="token operator">*</span> cur <span class="token operator">=</span> phead<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token keyword">while</span> <span class="token punctuation">(</span>cur <span class="token operator">!=</span> phead<span class="token punctuation">)</span> 	<span class="token punctuation">{<!-- --></span> 		<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> cur<span class="token operator">-&gt;</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> 		cur <span class="token operator">=</span> cur<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p><em><strong>但是相对于双向带头链表来说，有下面的优缺点：</strong></em><br /><strong>优点</strong><br /><strong>1、在任意位置插入删除效率高。O(1)</strong><br /><strong>2、按需申请空间</strong><br /><strong>缺点</strong><br /><strong>1、不支持随机访问。(下标访问)意味着一些快排，二分查找在这种结构上不适用</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97893.htm">数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引</a></p>
+                                        <p>下一个：<a href="/news/article-98583.htm">在非k8s 环境下 的应用 使用 Dapr Sidekick for .NET</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-node-share.htm" title="3月5日 | Free Trojan Node节点订阅每天更新18.3M/S免费节点订阅链接">3月5日 | Free Trojan Node节点订阅每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-trojan-node-github.htm" title="4月3日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接">4月3日 | Free Trojan Node节点订阅每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-high-speed-nodes.htm" title="4月10日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接">4月10日 | Free Trojan Node节点订阅每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-97893.htm" title="数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引">数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引</a></li>
+                        <li class="py-2"><a href="/news/article-84651.htm" title="开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂">开个小型宠物食品加工厂需要什么手续呢多少钱 开一家宠物食品加工厂</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-trojan-node.htm" title="3月24日 | Free Trojan Node节点订阅每天更新21M/S免费节点订阅链接">3月24日 | Free Trojan Node节点订阅每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-88984.htm" title="狗狗领养协议一般是怎么规定的呢图片（狗狗领养协议书有没有法律效益）">狗狗领养协议一般是怎么规定的呢图片（狗狗领养协议书有没有法律效益）</a></li>
+                        <li class="py-2"><a href="/news/article-79743.htm" title="动物疫苗类型有哪几种（动物疫苗种类及类型）">动物疫苗类型有哪几种（动物疫苗种类及类型）</a></li>
+                        <li class="py-2"><a href="/news/article-67729.htm" title="EFCore 6.0入门看这篇就够了">EFCore 6.0入门看这篇就够了</a></li>
+                        <li class="py-2"><a href="/news/article-93424.htm" title="修改 Docker 的默认存储路径">修改 Docker 的默认存储路径</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    </main><!-- End #main -->
+        <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                <a href="/">FreeTrojanNode免费节点官网</a> 版权所有 Powered by WordPress
+            </div>
+        </div>
+    </footer><!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="/assets/website/js/frontend/freetrojannode/jquery-1.9.1.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/aos/aos.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/php-email-form/validate.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/purecounter/purecounter.js"></script>
+    <script src="/assets/website/js/frontend/freetrojannode/swiper/swiper-bundle.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="/assets/website/js/frontend/freetrojannode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
