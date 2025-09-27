@@ -1,4 +1,4 @@
-# 9月17日 | Free Trojan Node节点订阅每天更新20.8M/S免费节点订阅链接  更新时间 2025-09-17 08:30:01
+# 9月27日 | Free Trojan Node节点订阅每天更新21.5M/S免费节点订阅链接  更新时间 2025-09-27 04:47:29
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freetrojannode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freetrojannode.github.io/uploads/2025/09/0-20250917.yaml
-- https://freetrojannode.github.io/uploads/2025/09/1-20250917.yaml
-- https://freetrojannode.github.io/uploads/2025/09/2-20250917.yaml
-- https://freetrojannode.github.io/uploads/2025/09/3-20250917.yaml
-- https://freetrojannode.github.io/uploads/2025/09/4-20250917.yaml
+- https://freetrojannode.github.io/uploads/2025/09/0-20250927.yaml
+- https://freetrojannode.github.io/uploads/2025/09/1-20250927.yaml
+- https://freetrojannode.github.io/uploads/2025/09/2-20250927.yaml
+- https://freetrojannode.github.io/uploads/2025/09/3-20250927.yaml
+- https://freetrojannode.github.io/uploads/2025/09/4-20250927.yaml
 
 ### V2ray订阅链接
 
-- https://freetrojannode.github.io/uploads/2025/09/0-20250917.txt
-- https://freetrojannode.github.io/uploads/2025/09/1-20250917.txt
-- https://freetrojannode.github.io/uploads/2025/09/2-20250917.txt
-- https://freetrojannode.github.io/uploads/2025/09/3-20250917.txt
-- https://freetrojannode.github.io/uploads/2025/09/4-20250917.txt
+- https://freetrojannode.github.io/uploads/2025/09/0-20250927.txt
+- https://freetrojannode.github.io/uploads/2025/09/1-20250927.txt
+- https://freetrojannode.github.io/uploads/2025/09/2-20250927.txt
+- https://freetrojannode.github.io/uploads/2025/09/3-20250927.txt
+- https://freetrojannode.github.io/uploads/2025/09/4-20250927.txt
 
 ### Sing-box订阅链接
 
-- https://freetrojannode.github.io/uploads/2025/09/20250917.json
+- https://freetrojannode.github.io/uploads/2025/09/20250927.json
 
 ## 更多clash节点订阅 ：
 
