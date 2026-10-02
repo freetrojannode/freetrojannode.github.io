@@ -231,9 +231,9 @@ sudo systemctl start v2ray
         PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
+    <div class="panel-heading"><h5>VMess 的 WebSocket + TLS 配置有哪些好处？</h5></div>
     <div class="panel-body">
-        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
+        WebSocket + TLS 可伪装为普通 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可以在高封锁网络中保持稳定、高速和安全的网络访问体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VLESS + Reality 模式与 TLS 模式有何不同？</h5></div>
@@ -241,14 +241,9 @@ sudo systemctl start v2ray
         Reality 模式通过伪造握手和真实网站特征提升隐蔽性，TLS 模式侧重加密和传输效率。Reality 更难被 DPI 检测，适合高封锁环境，TLS 模式在稳定性和速度上更优。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 使用 mKCP 有哪些适合场景？</h5></div>
     <div class="panel-body">
-        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 WebSocket + TLS 配置有哪些好处？</h5></div>
-    <div class="panel-body">
-        WebSocket + TLS 可伪装为普通 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可以在高封锁网络中保持稳定、高速和安全的网络访问体验。<hr />    </div>
+        mKCP 是基于 UDP 的传输协议，适合高丢包或不稳定网络环境。结合策略组使用，可优化网页浏览、视频播放和游戏体验，减少延迟和掉线，提高连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
@@ -261,9 +256,9 @@ sudo systemctl start v2ray
         WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 支持哪些类型的节点导入？</h5></div>
     <div class="panel-body">
-        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。<hr />    </div>
+        Surfboard 支持 VMess、VLESS、Trojan、Shadowsocks 等节点类型。用户可通过 YAML 或 JSON 文件导入，配置策略组和规则，实现自动分流和节点管理。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mellow TUN 模式对系统全局流量的作用是什么？</h5></div>
@@ -271,9 +266,14 @@ sudo systemctl start v2ray
         TUN 模式拦截系统 IP 层的所有流量，实现全局代理效果。相比 SOCKS5 只作用于特定应用，TUN 能覆盖游戏、视频和浏览器流量，保证全系统科学上网体验稳定高效。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 支持哪些类型的节点导入？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
     <div class="panel-body">
-        Surfboard 支持 VMess、VLESS、Trojan、Shadowsocks 等节点类型。用户可通过 YAML 或 JSON 文件导入，配置策略组和规则，实现自动分流和节点管理。    </div>
+        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 的配置文件在哪里保存？</h5></div>
+    <div class="panel-body">
+        Nekoray 的配置文件默认保存在程序目录下的 `config.json` 中。用户可手动备份此文件以迁移配置，也可使用导入导出功能在不同设备间同步节点数据。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -321,16 +321,16 @@ sudo systemctl start v2ray
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-30-trojan-node.htm" title="8月30日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接">8月30日 | Free Trojan Node节点订阅每天更新20.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-18-free-trojan-node.htm" title="8月18日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接">8月18日 | Free Trojan Node节点订阅每天更新18.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-29.htm" title="8月29日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接">8月29日 | Free Trojan Node节点订阅每天更新19.6M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-19.htm" title="9月19日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接">9月19日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-8-15.htm" title="8月15日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接">8月15日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-28-node-share.htm" title="8月28日 | Free Trojan Node节点订阅每天更新21M/S免费节点订阅链接">8月28日 | Free Trojan Node节点订阅每天更新21M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/trojan-windows-2026-8-9.htm" title="8月9日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接">8月9日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-14-node-share.htm" title="9月14日 | Free Trojan Node节点订阅每天更新19.8M/S免费节点订阅链接">9月14日 | Free Trojan Node节点订阅每天更新19.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-9-25.htm" title="9月25日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接">9月25日 | Free Trojan Node节点订阅每天更新20M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/latest-trojan-node-2026-9-5.htm" title="9月5日 | Free Trojan Node节点订阅每天更新19M/S免费节点订阅链接">9月5日 | Free Trojan Node节点订阅每天更新19M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-30-free-trojan-node.htm" title="9月30日 | Free Trojan Node节点订阅每天更新22.9M/S免费节点订阅链接">9月30日 | Free Trojan Node节点订阅每天更新22.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-8-trojan-node.htm" title="9月8日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接">9月8日 | Free Trojan Node节点订阅每天更新18.2M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-13.htm" title="9月13日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接">9月13日 | Free Trojan Node节点订阅每天更新21.1M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-20-trojan-github.htm" title="8月20日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接">8月20日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-22-trojan-github.htm" title="9月22日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接">9月22日 | Free Trojan Node节点订阅每天更新22.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-10-today-trojan-node.htm" title="9月10日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接">9月10日 | Free Trojan Node节点订阅每天更新20.7M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-27.htm" title="9月27日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接">9月27日 | Free Trojan Node节点订阅每天更新18.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-12-trojan-node.htm" title="9月12日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接">9月12日 | Free Trojan Node节点订阅每天更新21.8M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -342,10 +342,10 @@ sudo systemctl start v2ray
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                     </ul>
     </div>
